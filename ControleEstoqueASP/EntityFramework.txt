@@ -1,0 +1,32 @@
+﻿-- INSTRUÇÕES SOBRE O EF CORE --
+
+1 - Instalar o EF Core no Projeto:
+Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version:2.1.11
+
+2 - Criar as classes de modelo:
+
+3 - Classe de contexto:
+- Herdar do DbContext;
+- Criar o Construtor;
+- Criar o DbSet de cada classe de modelo;
+    public class Context : DbContext
+    {
+        public Context(DbContextOptions<Context> options) : base(options) { }
+        public DbSet<Produto> Produtos { get; set; }
+    }
+
+
+4 - Configurar o serviço do banco de dados na classe Startup.cs > public void ConfigureServices():
+	services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("EcommerceConnection")));
+
+5 - Criar a string de conexão dno arquivo appsettings.json: 
+--> se necessário pesuisar "strings de conexão".
+  "ConnectionStrings": {
+    "EcommerceConnection": "Server=(localdb)\\MSSQLLocalDB;Database=DbEcommerce;Trusted_Connection=True"
+  }
+
+6 - Adicionar a migração:
+Add-Migration NomeMigração
+
+7 - Atualziar o Banco:
+Update-Database -verbose

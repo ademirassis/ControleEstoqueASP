@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ControleEstoqueASP.DAL;
+using ControleEstoqueASP.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -30,6 +33,17 @@ namespace ControleEstoqueASP
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // Configurando a injeção de dependência
+            services.AddScoped<DevolucaoDAO>();
+            services.AddScoped<CategoriaDAO>();
+            services.AddScoped<EstoqueDAO>();
+            services.AddScoped<FornecedorDAO>();
+            services.AddScoped<MovimentoDAO>();
+            services.AddScoped<ProdutoDAO>();
+            services.AddScoped<UsuarioDAO>();
+
+            services.AddDbContext<Context>(options => options.UseSqlServer
+            (Configuration.GetConnectionString("ControleEstoqueConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
