@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Categoria\" />
     <Folder Include="Views\Fornecedor\" />
     <Folder Include="Views\Movimento\" />
     <Folder Include="Views\Devolucao\" />

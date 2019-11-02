@@ -21,10 +21,15 @@ namespace ControleEstoqueASP.DAL
             _context.SaveChanges();
         }
 
-        public void CadastrarCategoria(Categoria c)
+        public bool CadastrarCategoria(Categoria c)
         {
-            _context.Categorias.Add(c);
-            _context.SaveChanges();
+            if (BuscarCategoriaPorNome(c) == null)
+            {
+                _context.Categorias.Add(c);
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public Categoria BuscarCategoriaPorNome
@@ -42,9 +47,14 @@ namespace ControleEstoqueASP.DAL
             _context.SaveChanges();
         }
 
-        public void RemoverCategoria(Categoria c)
+        public Categoria BuscarCategoriaPorId(int? id)
         {
-            _context.Categorias.Remove(c);
+            return _context.Categorias.Find(id);
+        }
+
+        public void RemoverCategoria(int? id)
+        {
+            _context.Categorias.Remove(BuscarCategoriaPorId(id));
             _context.SaveChanges();
         }
 
