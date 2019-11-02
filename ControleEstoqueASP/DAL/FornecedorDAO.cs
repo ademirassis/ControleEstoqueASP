@@ -15,36 +15,34 @@ namespace ControleEstoqueASP.DAL
             _context = context;
         }
 
-        public void CadastrarProduto(Produto p)
+        public bool CadastrarFornecedor(Fornecedor f)
         {
-            _context.Produtos.Add(p);
+            if (BuscarFornecedorPorNome(f) == null)
+            {
+                _context.Fornecedores.Add(f);
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public Fornecedor BuscarFornecedorPorNome(Fornecedor c) =>
+            _context.Fornecedores.FirstOrDefault(x => x.Nome.Equals(c.Nome));
+
+        public Fornecedor BuscarFornecedorPorId(int? id)
+        {
+            return _context.Fornecedores.Find(id);
+        }
+
+        public void AlterarFornecedor(Fornecedor f)
+        {
+            _context.Fornecedores.Update(f);
             _context.SaveChanges();
         }
 
-        public void CadastrarFornecedor(Fornecedor c)
+        public void RemoverFornecedor(int? id)
         {
-            _context.Fornecedores.Add(c);
-            _context.SaveChanges();
-        }
-
-        public Fornecedor BuscarFornecedorPorNome
-            (Fornecedor c) =>
-            _context.Fornecedores.FirstOrDefault
-            (x => x.Nome.Equals(c.Nome));
-
-        public void AlterarFornecedor(Fornecedor c)
-        {
-            Fornecedor atualizaRegistro = _context.Fornecedores.Where(x => x.Id == c.Id).FirstOrDefault();
-            atualizaRegistro.Nome = c.Nome;
-            atualizaRegistro.Cnpj = c.Cnpj;
-
-            _context.Entry(atualizaRegistro).State = EntityState.Modified;
-            _context.SaveChanges();
-        }
-
-        public void RemoverFornecedor(Fornecedor c)
-        {
-            _context.Fornecedores.Remove(c);
+            _context.Fornecedores.Remove(BuscarFornecedorPorId(id));
             _context.SaveChanges();
         }
 

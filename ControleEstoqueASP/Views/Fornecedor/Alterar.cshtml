@@ -1,15 +1,14 @@
-﻿@model Categoria
+﻿@model Fornecedor
 
 @{
-    ViewData["Title"] = "Alterar Categoria";
+    ViewData["Title"] = "Alterar Fornecedor";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <form asp-action="Alterar" method="post">
     <fieldset>
-        <legend>Alterar Categoria</legend>
+        <legend>Alterar Fornecedor</legend>
 
-        <!-- se necessário, pesquisar por "Tag helper" -->
         <input type="hidden" asp-for="Id" readonly="" />
 
         <div class="form-group" id="Nome">
@@ -17,13 +16,13 @@
             <input type="text" asp-for="Nome" class="form-control" />
         </div>
 
-        <div class="form-group" id="Descricao">
-            <label>Descrição:</label>
-            <input type="text" asp-for="Descricao" class="form-control" />
+        <div class="form-group" id="Cnpj">
+            <label>CNPJ:</label>
+            <input type="text" asp-for="Cnpj" class="form-control" />
         </div>
 
         <button type="submit" value="Salvar" class="btn btn-primary mb-2">Salvar</button>
     </fieldset>
 </form>
 
-<div><a href="~/Categoria/Index" class="btn btn-primary">Voltar</a></div>
+<div><a href="~/Fornecedor/Index" class="btn btn-primary">Voltar</a></div>

@@ -1,0 +1,31 @@
+﻿@model Fornecedor
+
+@{
+    ViewData["Title"] = "Cadastrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="Cadastrar" method="post">
+    <fieldset>
+        <legend>Cadastrar Fornecedor</legend>
+        <div asp-validation-summary="ModelOnly" class="alert alert-dismissible alert-warning"></div>
+
+        <div class="form-group" id="Nome">
+            <label asp-for="Nome"></label>
+            <input type="text" asp-for="Nome"
+                   class="form-control" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+
+        <div class="form-group" id="Cnpj">
+            <label asp-for="Cnpj"></label>
+            <input type="text" asp-for="Cnpj"
+                   class="form-control" />
+            <span asp-validation-for="Cnpj" class="text-danger"></span>
+        </div>
+
+        <button type="submit" value="Cadastrar" class="btn btn-primary mb-2">Cadastrar</button>
+    </fieldset>
+</form>
+
+<div><a href="~/Fornecedor/Index" class="btn btn-primary">Voltar</a></div>

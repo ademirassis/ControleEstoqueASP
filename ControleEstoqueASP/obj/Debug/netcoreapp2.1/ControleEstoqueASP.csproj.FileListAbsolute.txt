@@ -27,3 +27,6 @@ C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqu
 C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Categoria\Cadastrar.g.cshtml.cs
 C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Categoria\Alterar.g.cshtml.cs
 C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Fornecedor\Alterar.g.cshtml.cs
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Fornecedor\Cadastrar.g.cshtml.cs
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Fornecedor\Index.g.cshtml.cs

@@ -15,12 +15,6 @@ namespace ControleEstoqueASP.DAL
             _context = context;
         }
 
-        public void CadastrarProduto(Produto p)
-        {
-            _context.Produtos.Add(p);
-            _context.SaveChanges();
-        }
-
         public bool CadastrarCategoria(Categoria c)
         {
             if (BuscarCategoriaPorNome(c) == null)
@@ -32,18 +26,13 @@ namespace ControleEstoqueASP.DAL
             return false;
         }
 
-        public Categoria BuscarCategoriaPorNome
-            (Categoria c) =>
-            _context.Categorias.FirstOrDefault
+        public Categoria BuscarCategoriaPorNome(Categoria c) 
+            => _context.Categorias.FirstOrDefault
             (x => x.Nome.Equals(c.Nome));
 
         public void AlterarCategoria(Categoria c)
         {
-            Categoria atualizaRegistro = _context.Categorias.Where(x => x.Id == c.Id).FirstOrDefault();
-            atualizaRegistro.Nome = c.Nome;
-            atualizaRegistro.Descricao = c.Descricao;
-
-            _context.Entry(atualizaRegistro).State = EntityState.Modified;
+            _context.Categorias.Update(c) ;
             _context.SaveChanges();
         }
 
