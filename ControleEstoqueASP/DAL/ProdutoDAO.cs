@@ -15,32 +15,40 @@ namespace ControleEstoqueASP.DAL
             _context = context;
         }
 
-        public void CadastrarProduto(Produto p)
+        public bool CadastrarProduto(Produto p)
         {
-            _context.Produtos.Add(p);
-            _context.SaveChanges();
+            if (BuscarProdutoPorNome(p) == null)
+            {
+                _context.Produtos.Add(p);
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
-        public Produto BuscarProdutoPorNome
-            (Produto p) =>
+        public Produto BuscarProdutoPorNome(Produto p) =>
             _context.Produtos.FirstOrDefault
             (x => x.Nome.Equals(p.Nome));
 
-        public void AlterarProduto(Produto p)
+        public Produto BuscarProdutoPorId(int? id)
         {
-            Produto atualizaRegistro = _context.Produtos.Where(x => x.Id == p.Id).FirstOrDefault();
-            atualizaRegistro.Nome = p.Nome;
-            atualizaRegistro.Descricao = p.Descricao;
-            atualizaRegistro.Fornecedor = p.Fornecedor;
-            atualizaRegistro.Preco = p.Preco;
-
-            _context.Entry(atualizaRegistro).State = EntityState.Modified;
-            _context.SaveChanges();
+            return _context.Produtos.Find(id);            
         }
 
-        public void RemoverProduto(Produto p)
+        public bool AlterarProduto(Produto p)
         {
-            _context.Produtos.Remove(p);
+            if (BuscarProdutoPorNome(p) == null)
+            {
+                _context.Produtos.Update(p);
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public void RemoverProduto(int? id)
+        {
+            _context.Produtos.Remove(BuscarProdutoPorId(id));
             _context.SaveChanges();
         }
 
@@ -49,13 +57,11 @@ namespace ControleEstoqueASP.DAL
             return _context.Produtos.ToList();
         }
 
-        public Produto VinculoCategoria
-            (Categoria c) =>
+        public Produto VinculoCategoria(Categoria c) =>
             _context.Produtos.FirstOrDefault
             (x => x.Categoria.Id.Equals(c.Id));
 
-        public Produto VinculoFornecedor
-            (Fornecedor f) =>
+        public Produto VinculoFornecedor(Fornecedor f) =>
             _context.Produtos.FirstOrDefault
             (x => x.Fornecedor.Id.Equals(f.Id));
     }

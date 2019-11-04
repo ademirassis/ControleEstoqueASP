@@ -1,0 +1,53 @@
+﻿@model Produto
+
+@{
+    ViewData["Title"] = "Alterar Fornecedor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="Alterar" method="post">
+    <fieldset>
+        <legend>Alterar Produto</legend>
+
+        <input type="hidden" asp-for="Id" readonly="" />
+
+        <div class="form-group" id="Nome">
+            <label asp-for="Nome"></label>
+            <input type="text" asp-for="Nome"
+                   class="form-control" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+
+        <div class="form-group" id="Descricao">
+            <label asp-for="Descricao"></label>
+            <input type="text" asp-for="Descricao"
+                   class="form-control" />
+            <span asp-validation-for="Descricao" class="text-danger"></span>
+        </div>
+
+        <div class="form-group" id="Fornecedor">
+            <label asp-for="Fornecedor"></label>
+            <select asp-items="@ViewBag.Fornecedores" asp-for="Fornecedor.Nome"  class="form-control" name="drpFornecedores">
+                <option value="value">-- Selecione --</option>
+            </select>
+        </div>
+
+        <div class="form-group" id="Categoria">
+            <label asp-for="Categoria"></label>
+            <select asp-items="@ViewBag.Categorias" asp-for="Categoria.Nome" class="form-control" name="drpCategorias">
+                <option value="value">-- Selecione --</option>
+            </select>
+        </div>
+
+        <div class="form-group" id="Preco">
+            <label asp-for="Preco"></label>
+            <input type="text" asp-for="Preco"
+                   class="form-control" />
+            <span asp-validation-for="Preco" class="text-danger"></span>
+        </div>
+
+        <button type="submit" value="Salvar" class="btn btn-primary mb-2">Salvar</button>
+    </fieldset>
+</form>
+
+<div><a href="~/Produto/Index" class="btn btn-primary">Voltar</a></div>

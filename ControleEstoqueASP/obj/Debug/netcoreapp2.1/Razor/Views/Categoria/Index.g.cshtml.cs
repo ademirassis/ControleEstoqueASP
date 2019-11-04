@@ -71,7 +71,7 @@ using ControleEstoqueASP.Models;
             WriteLiteral("\r\n<h2>Gerenciamento de Categorias</h2>\r\n<!--<a href=\"Produto/Cadastrar\">Cadastrar Produto</a>-->\r\n");
             EndContext();
             BeginContext(308, 73, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a0c79944076f4a0b925d1370ae977788", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3d6a9261919a45fd8680359b7e7fd89d", async() => {
                 BeginContext(358, 19, true);
                 WriteLiteral("Cadastrar Categoria");
                 EndContext();
@@ -147,7 +147,7 @@ using ControleEstoqueASP.Models;
             WriteLiteral("</td>\r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(912, 114, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d5ddc61f33df470ea707fad77ba5564a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5b43096062e646bab2ce46cebe36ca4a", async() => {
                 BeginContext(1015, 7, true);
                 WriteLiteral("Remover");
                 EndContext();
@@ -183,7 +183,7 @@ using ControleEstoqueASP.Models;
             WriteLiteral("\r\n                </td>\r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(1093, 112, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "359a7a1ab852452a98e36d49fce078ae", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a73da1aaa2b4124bc1df08082b23778", async() => {
                 BeginContext(1194, 7, true);
                 WriteLiteral("Alterar");
                 EndContext();

@@ -16,7 +16,6 @@
     <Folder Include="Views\Devolucao\" />
     <Folder Include="Views\Estoque\" />
     <Folder Include="Views\Usuario\" />
-    <Folder Include="Views\Produto\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +26,15 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\Fornecedor\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Produto\Alterar.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Produto\Cadastrar.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Produto\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
   </ItemGroup>

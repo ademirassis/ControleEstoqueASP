@@ -1,0 +1,51 @@
+﻿@model List<Produto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DateTime dataHora = DateTime.Now;
+}
+
+<h2>Gerenciamento de Produtos</h2>
+
+<a class="btn btn-primary" asp-action="Cadastrar">Cadastrar Produto</a>
+<br />
+
+<table style="margin-top:15px;margin-bottom:15px" class="table table-hover">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Fornecedor</th>
+            <th>Categoria</th>
+            <th>Preco</th>
+            <th>Criado em</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Produto item in Model)
+        {
+            <tr>
+                <td>@item.Nome</td>
+                <td>@item.Descricao</td>
+                <td>@item.Fornecedor</td>
+                <td>@item.Categoria</td>
+                <td>@item.Preco.ToString()</td>
+                <td>@item.CriadoEm</td>
+                <td>
+                    <a asp-action="Remover" asp-route-id="@item.Id"
+                       class="btn btn-outline-danger">Remover</a>
+                </td>
+                <td>
+                    <a asp-action="Alterar" asp-route-id="@item.Id"
+                       class="btn btn-outline-info">Alterar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <b>Dados atualizados em: </b> @dataHora
+</p>
