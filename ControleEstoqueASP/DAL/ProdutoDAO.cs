@@ -32,18 +32,14 @@ namespace ControleEstoqueASP.DAL
 
         public Produto BuscarProdutoPorId(int? id)
         {
-            return _context.Produtos.Find(id);            
+            return _context.Produtos.Find(id);
         }
 
         public bool AlterarProduto(Produto p)
         {
-            if (BuscarProdutoPorNome(p) == null)
-            {
-                _context.Produtos.Update(p);
-                _context.SaveChanges();
-                return true;
-            }
-            return false;
+            _context.Produtos.Update(p);
+            _context.SaveChanges();
+            return true;
         }
 
         public void RemoverProduto(int? id)

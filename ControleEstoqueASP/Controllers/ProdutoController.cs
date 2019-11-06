@@ -55,8 +55,9 @@ namespace ControleEstoqueASP.Controllers
         {
             if (id != null)
             {
-                SelectList fornecedores = new SelectList(_fornecedorDAO.ListarFornecedores(), "Id", "Nome");
                 Produto p = _produtoDAO.BuscarProdutoPorId(id);
+
+                SelectList fornecedores = new SelectList(_fornecedorDAO.ListarFornecedores(), "Id", "Nome");
                 foreach (var item in fornecedores)
                 {
                     if(item.Value == p.Fornecedor.Id.ToString())
@@ -65,8 +66,20 @@ namespace ControleEstoqueASP.Controllers
                         break;
                     }
                 }
+
+                SelectList categorias = new SelectList(_categoriaDAO.ListarCategorias(), "Id", "Nome");
+                foreach (var item in categorias)
+                {
+                    if (item.Value == p.Categoria.Id.ToString())
+                    {
+                        item.Selected = true;
+                        break;
+                    }
+                }
+
                 ViewBag.Fornecedores = fornecedores;
-                ViewBag.Categorias = new SelectList(_categoriaDAO.ListarCategorias(), "Id", "Nome");
+                ViewBag.Categorias = categorias;
+
                 return View(p);
             }
             else
