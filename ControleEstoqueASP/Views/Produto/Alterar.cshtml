@@ -27,14 +27,14 @@
 
         <div class="form-group" id="Fornecedor">
             <label asp-for="Fornecedor"></label>
-            <select asp-items="@ViewBag.Fornecedores" asp-for="Fornecedor.Nome"  class="form-control" name="drpFornecedores">
+            <select asp-items="@ViewBag.Fornecedores" class="form-control" name="drpFornecedores">
                 <option value="value">-- Selecione --</option>
             </select>
         </div>
 
         <div class="form-group" id="Categoria">
             <label asp-for="Categoria"></label>
-            <select asp-items="@ViewBag.Categorias" asp-for="Categoria.Nome" class="form-control" name="drpCategorias">
+            <select asp-items="@ViewBag.Categorias" asp-for="Categoria" class="form-control" name="drpCategorias">
                 <option value="value">-- Selecione --</option>
             </select>
         </div>
