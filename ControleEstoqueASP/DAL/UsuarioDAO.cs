@@ -15,12 +15,6 @@ namespace ControleEstoqueASP.DAL
             _context = context;
         }
 
-        public void CadastrarProduto(Produto p)
-        {
-            _context.Produtos.Add(p);
-            _context.SaveChanges();
-        }
-
         public Usuario BuscarUsuario(Usuario u)
         {
             return _context.Usuarios.FirstOrDefault(x =>
@@ -28,10 +22,11 @@ namespace ControleEstoqueASP.DAL
                       x.Senha.Equals(u.Senha));
         }
 
-        public void CadastrarUsuario(Usuario u)
+        public bool CadastrarUsuario(Usuario u)
         {
             _context.Usuarios.Add(u);
             _context.SaveChanges();
+            return true;
         }
 
         public Usuario BuscarUsuarioPorNome
@@ -58,6 +53,11 @@ namespace ControleEstoqueASP.DAL
 
             _context.Entry(atualizaRegistro).State = EntityState.Modified;
             _context.SaveChanges();
+        }
+
+        public List<Usuario> ListarUsuarios()
+        {
+            return _context.Usuarios.ToList();
         }
 
         public void RemoverUsuario(Usuario u)

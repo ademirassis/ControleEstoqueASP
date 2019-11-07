@@ -89,8 +89,6 @@ namespace ControleEstoqueASP.Controllers
             return RedirectToAction("Alterar");
         }
 
-
-
         [HttpPost]
         public IActionResult Cadastrar(Produto p, int drpFornecedores, int drpCategorias)
         {

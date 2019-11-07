@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Usuarios\**" />
+    <Content Remove="Views\Usuarios\**" />
+    <EmbeddedResource Remove="Views\Usuarios\**" />
+    <None Remove="Views\Usuarios\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\UsuariosController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.11" />
@@ -15,7 +26,6 @@
     <Folder Include="Views\Movimento\" />
     <Folder Include="Views\Devolucao\" />
     <Folder Include="Views\Estoque\" />
-    <Folder Include="Views\Usuario\" />
   </ItemGroup>
 
   <ItemGroup>

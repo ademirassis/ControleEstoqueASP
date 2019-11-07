@@ -68,3 +68,5 @@ C:\GitHub\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Controle
 C:\GitHub\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\ControleEstoqueASP.dll
 C:\GitHub\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\ControleEstoqueASP.pdb
 C:\GitHub\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\ControleEstoqueASP.csproj.CopyComplete
+C:\GitHub\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\Index.g.cshtml.cs
+C:\GitHub\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\Cadastrar.g.cshtml.cs
