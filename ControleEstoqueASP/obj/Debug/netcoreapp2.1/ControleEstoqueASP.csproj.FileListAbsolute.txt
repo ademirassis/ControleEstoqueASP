@@ -70,3 +70,8 @@ C:\GitHub\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Controle
 C:\GitHub\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\ControleEstoqueASP.csproj.CopyComplete
 C:\GitHub\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\Index.g.cshtml.cs
 C:\GitHub\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\Cadastrar.g.cshtml.cs
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\Cadastrar.g.cshtml.cs
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\Index.g.cshtml.cs
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Movimento\Index.g.cshtml.cs
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Movimento\Cadastrar.g.cshtml.cs
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Produto\Detalhes.g.cshtml.cs

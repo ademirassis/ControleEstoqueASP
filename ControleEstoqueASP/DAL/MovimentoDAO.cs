@@ -15,12 +15,6 @@ namespace ControleEstoqueASP.DAL
             _context = context;
         }
 
-        public void CadastrarProduto(Produto p)
-        {
-            _context.Produtos.Add(p);
-            _context.SaveChanges();
-        }
-
         public void LancarMovimento(Movimento m)
         {
             _context.Movimentos.Add(m);

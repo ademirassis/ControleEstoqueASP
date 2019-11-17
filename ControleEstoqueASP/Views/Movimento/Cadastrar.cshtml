@@ -1,0 +1,98 @@
+﻿@model Movimento
+
+@{
+    ViewData["Title"] = "Cadastrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="Cadastrar" method="post">
+    <fieldset>
+        <legend>Movimentação de Estoque</legend>
+        <div asp-validation-summary="ModelOnly" class="alert alert-dismissible alert-warning"></div>
+
+            <div class="form-group" id="Produto">
+                <label asp-for="Produto"></label>
+                <select asp-items="@ViewBag.Produtos" class="form-control" name="drpProdutos" id="drpProdutos">
+                    <option value="value">-- Selecione --</option>
+                </select>
+            </div>
+
+            @*<div class="form-group" id="Categoria">
+                <select id="categoria_atualizaSelect" name="Categoria" asp-for="Id" asp-items='@(new SelectList(string.Empty,"Id","Nome"))'></select>
+            </div>*@
+
+            <div class="form-group" id="Categoria">
+                <label asp-for="Categoria"></label>
+                <input type="text" readonly="" class="form-control" id="categoriaSelected" />
+            </div>
+
+            <div class="form-group" id="Fornecedor">
+                <label asp-for="Fornecedor"></label>
+                <input type="text" readonly="" class="form-control" id="fornecedorSelected" />
+            </div>
+
+        <div class="form-group" id="Quantidade">
+            <label asp-for="Quantidade"></label>
+            <input type="number" asp-for="Quantidade" class="form-control" />
+            <span asp-validation-for="Quantidade" class="text-danger"></span>
+        </div>
+
+        <div class="form-group" id="TipoMovimento">
+            <label asp-for="TipoMovimento"></label>
+            <select asp-items="@ViewBag.TipoMovimento" class="form-control" name="drpTipoMovimento">
+                <option value="value">-- Selecione --</option>
+            </select>
+        </div>
+
+        <div class="form-group" id="EnderecoEstoque">
+            <label asp-for="EnderecoEstoque"></label>
+            <select asp-items="@ViewBag.EnderecoEstoque" class="form-control" name="drpEnderecoEstoque">
+                <option value="value">-- Selecione --</option>
+            </select>
+        </div>
+
+        <div>
+            <button type="submit" value="Cadastrar" class="btn btn-primary mb-2">Lançar Movimento</button>
+            <a href="#" class="btn btn-primary mb-2">Mapa do Estoque</a>
+            <a href="#" class="btn btn-primary mb-2">Limpar Campos</a>
+        </div>
+    </fieldset>
+</form>
+
+<div>
+    <div class="float-right">
+        <a href="~/Movimento/Index" class="btn btn-primary mb-2">Voltar</a>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#drpProdutos').on('change', function () {
+            var produtoId = $('#drpProdutos option:selected').val();
+            //alert(produtoId);
+
+            $.ajax({
+                type: 'GET',
+                data: { produtoId: parseInt(produtoId) },
+                dataType: "json", 
+                url: '@Url.Action("LoadCategoria", "Movimento")',
+                success: function (myJsonCategoria) {
+                    document.getElementById("categoriaSelected").value = myJsonCategoria.nome;
+                }
+            });
+
+            $.ajax({
+                type: 'GET',
+                data: { produtoId: parseInt(produtoId) },
+                dataType: "json", 
+                url: '@Url.Action("LoadFornecedor", "Movimento")',
+                success: function (myJsonFornecedor) {
+                    document.getElementById("fornecedorSelected").value = myJsonFornecedor.nome;
+                }
+            });
+
+        });
+    });
+
+</script>

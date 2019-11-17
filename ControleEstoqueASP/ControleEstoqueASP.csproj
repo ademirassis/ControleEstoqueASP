@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Movimento\" />
     <Folder Include="Views\Devolucao\" />
     <Folder Include="Views\Estoque\" />
   </ItemGroup>

@@ -22,27 +22,32 @@
             <th>Criado em</th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (Produto item in Model)
         {
-            <tr>
-                <td>@item.Nome</td>
-                <td>@item.Descricao</td>
-                <td>@item.Fornecedor.Nome</td>
-                <td>@item.Categoria.Nome</td>
-                <td>@item.Preco.ToString()</td>
-                <td>@item.CriadoEm</td>
-                <td>
-                    <a asp-action="Remover" asp-route-id="@item.Id"
-                       class="btn btn-outline-danger">Remover</a>
-                </td>
-                <td>
-                    <a asp-action="Alterar" asp-route-id="@item.Id"
-                       class="btn btn-outline-info">Alterar</a>
-                </td>
-            </tr>
+        <tr>
+            <td>@item.Nome</td>
+            <td>@item.Descricao</td>
+            <td>@item.Fornecedor.Nome</td>
+            <td>@item.Categoria.Nome</td>
+            <td>@item.Preco.ToString()</td>
+            <td>@item.CriadoEm</td>
+            <td>
+                <a asp-action="Remover" asp-route-id="@item.Id"
+                   class="btn btn-outline-danger">Remover</a>
+            </td>
+            <td>
+                <a asp-action="Alterar" asp-route-id="@item.Id"
+                   class="btn btn-outline-info">Alterar</a>
+            </td>
+            <td>
+                <a asp-action="Detalhes" asp-controller="Produto" asp-route-id="@item.Id"
+                   class="btn btn-outline-info">Detalhes</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

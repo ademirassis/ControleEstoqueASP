@@ -57,16 +57,6 @@ namespace ControleEstoqueASP.Controllers
             {
                 Produto p = _produtoDAO.BuscarProdutoPorId(id);
 
-                SelectList fornecedores = new SelectList(_fornecedorDAO.ListarFornecedores(), "Id", "Nome");
-                foreach (var item in fornecedores)
-                {
-                    if(item.Value == p.Fornecedor.Id.ToString())
-                    {
-                        item.Selected = true;
-                        break;
-                    }
-                }
-
                 SelectList categorias = new SelectList(_categoriaDAO.ListarCategorias(), "Id", "Nome");
                 foreach (var item in categorias)
                 {
@@ -77,8 +67,18 @@ namespace ControleEstoqueASP.Controllers
                     }
                 }
 
-                ViewBag.Fornecedores = fornecedores;
+                SelectList fornecedores = new SelectList(_fornecedorDAO.ListarFornecedores(), "Id", "Nome");
+                foreach (var item in fornecedores)
+                {
+                    if(item.Value == p.Fornecedor.Id.ToString())
+                    {
+                        item.Selected = true;
+                        break;
+                    }
+                }
+
                 ViewBag.Categorias = categorias;
+                ViewBag.Fornecedores = fornecedores;
 
                 return View(p);
             }
@@ -88,6 +88,17 @@ namespace ControleEstoqueASP.Controllers
             }
             return RedirectToAction("Alterar");
         }
+
+
+        public IActionResult Detalhes(int id)
+        {
+            Produto p = _produtoDAO.BuscarProdutoPorId(id);
+            ViewBag.Categorias = _categoriaDAO.ListarCategorias();
+            ViewBag.Fornecedores = _fornecedorDAO.ListarFornecedores();
+
+            return View(p);
+        }
+
 
         [HttpPost]
         public IActionResult Cadastrar(Produto p, int drpFornecedores, int drpCategorias)
