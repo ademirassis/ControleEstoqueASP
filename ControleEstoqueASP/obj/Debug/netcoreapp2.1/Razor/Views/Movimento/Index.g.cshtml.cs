@@ -68,7 +68,7 @@ using ControleEstoqueASP.Models;
             WriteLiteral("\r\n\r\n<h2>Gerenciamento de Movimentações</h2>\r\n<p>\r\n    ");
             EndContext();
             BeginContext(207, 73, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "caee305df6174a6ab7068a5f3d255734", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "872dcb167e154e29a4e41248a1efdfab", async() => {
                 BeginContext(257, 19, true);
                 WriteLiteral("Cadastrar Movimento");
                 EndContext();
@@ -208,7 +208,7 @@ using ControleEstoqueASP.Models;
             WriteLiteral("</td>\r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(1404, 114, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e1a52f2908f4adab46fe7b56be8d069", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e965f690f350499a89189124d72ab6dd", async() => {
                 BeginContext(1506, 8, true);
                 WriteLiteral("Detalhes");
                 EndContext();

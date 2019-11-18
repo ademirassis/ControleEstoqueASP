@@ -21,6 +21,11 @@ namespace ControleEstoqueASP.DAL
             _context.SaveChanges();
         }
 
+        public Estoque BuscarEstoquePorId(int? id)
+        {
+            return _context.Estoque.Find(id);
+        }
+
         public List<Estoque> ListarEnderecoEstoqueDisponivel()
         {
             return _context.Estoque.Include("Produto").Include("Produto.Categoria").Include("Produto.Fornecedor")

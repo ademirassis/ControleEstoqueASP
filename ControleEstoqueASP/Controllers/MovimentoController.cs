@@ -73,21 +73,22 @@ namespace ControleEstoqueASP.Controllers
         }
 
         [HttpPost]
-        public IActionResult Cadastrar(Movimento m, int drpProdutos) 
+        public IActionResult Cadastrar(Movimento m, int drpProdutos, string drpTipoMovimento, int? drpEnderecoEstoque) 
         {
             ViewBag.Produtos = new SelectList(_produtoDAO.ListarProdutos(), "Id", "Nome");
             ViewBag.Categorias = new SelectList(_categoriaDAO.ListarCategorias(), "Id", "Nome");
             ViewBag.Fornecedores = new SelectList(_fornecedorDAO.ListarFornecedores(), "Id", "Nome");
-            ViewBag.EnderecoEstoque = new SelectList(_estoqueDAO.ListarEnderecoEstoqueDisponivel(), "Id", "Localizacao");
 
             if (ModelState.IsValid)
             {
                 m.Produto = _produtoDAO.BuscarProdutoPorId(drpProdutos);
                 m.Categoria = m.Produto.Categoria;
                 m.Fornecedor = m.Produto.Fornecedor;
-
+                m.TipoMovimento = drpTipoMovimento;
+                m.EnderecoEstoque = (_estoqueDAO.BuscarEstoquePorId(drpEnderecoEstoque)).Localizacao;
                 
                 _movimentoDAO.LancarMovimento(m);
+                _estoqueDAO.AtualizarEnderecoEstoque(m);
                 return RedirectToAction("Index");
             }
             return View(m);
