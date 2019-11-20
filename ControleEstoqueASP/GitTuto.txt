@@ -1,0 +1,68 @@
+﻿Remover as credenciais (quando utilizar outro computador): 
+Painel de Controle > Contas de Usuário > Gerenciador de Credenciais > Credenciais do Windows
+
+
+CONFIGURAÇÕES INICIAIS
+
+git config --global user.name "ademirassis"
+git config --global user.email "xxxxx@outlook.com"
+
+Criar um repositório local(navegar até a pasta do projeto)
+git init
+
+Verificar o status do repositório:
+git status
+
+Adicionar os arquivos para o monitoramento do Git:
+git add *
+
+Criar um commit no repositório:
+git commit -m "Descrição do commit"
+
+Configurar para onde o repositório será enviado (é feito apenas uma vez):
+git remote add origin https://github.com/ademirassis/Ecommerce.git
+
+
+Enviar o commit para o repositório remoto:
+git push -u origin master
+
+Após fazer modificações no código:
+git status
+git add *
+git commit -m "Alteração do modelo"
+git push -u origin master
+git log
+
+
+Clonar um repositório (apenas uma vez):
+git clone https://github.com/ademirassis/Ecommerce.git
+git add *
+git commit -m "Commit no repositório clonado"
+git push -u origin master
+
+Dar permissão de commit:
+Ir em configurações Collaborators e enviar convite para o dono do diretório:
+
+
+	
+
+-----------------------------
+
+Quick setup — if you’ve done this kind of thing before
+https://github.com/ademirassis/Ecommerce.git
+
+…or create a new repository on the command line
+
+echo "# Ecommerce" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/ademirassis/Ecommerce.git
+git push -u origin master
+
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/ademirassis/Ecommerce.git
+git push -u origin master
+
