@@ -16,15 +16,17 @@ namespace ControleEstoqueASP.Controllers
         private readonly CategoriaDAO _categoriaDAO;
         private readonly FornecedorDAO _fornecedorDAO;
         private readonly EstoqueDAO _estoqueDAO;
+        private readonly DevolucaoDAO _devolucaoDAO;
 
-        public MovimentoController(MovimentoDAO movimentoDAO, ProdutoDAO produtoDAO, 
-            CategoriaDAO categoriaDAO, FornecedorDAO fornecedorDAO, EstoqueDAO estoqueDAO)
+        public MovimentoController(MovimentoDAO movimentoDAO, ProdutoDAO produtoDAO,
+            CategoriaDAO categoriaDAO, FornecedorDAO fornecedorDAO, EstoqueDAO estoqueDAO, DevolucaoDAO devolucaoDAO)
         {
             _movimentoDAO = movimentoDAO;
             _produtoDAO = produtoDAO;
             _categoriaDAO = categoriaDAO;
             _fornecedorDAO = fornecedorDAO;
             _estoqueDAO = estoqueDAO;
+            _devolucaoDAO = devolucaoDAO;
         }
 
         public IActionResult Index()
@@ -54,7 +56,7 @@ namespace ControleEstoqueASP.Controllers
             if (produtoSelected != null)
             {
                 ViewBag.Categorias = new SelectList(_categoriaDAO.ListarCategorias(), "Id", "Nome");
-                Categoria categoriaSelected = _categoriaDAO.BuscarCategoriaPorId(produtoSelected.Categoria.Id);  
+                Categoria categoriaSelected = _categoriaDAO.BuscarCategoriaPorId(produtoSelected.Categoria.Id);
                 return Json(categoriaSelected);
             }
             return Json("");
@@ -72,8 +74,13 @@ namespace ControleEstoqueASP.Controllers
             return Json("");
         }
 
+        public IActionResult Detalhes(int id)
+        {
+            return View(_movimentoDAO.BuscarMovimentoPorId(id));
+        }
+
         [HttpPost]
-        public IActionResult Cadastrar(Movimento m, int drpProdutos, string drpTipoMovimento, int? drpEnderecoEstoque) 
+        public IActionResult Cadastrar(Movimento m, int drpProdutos, string drpTipoMovimento, int? drpEnderecoEstoque)
         {
             ViewBag.Produtos = new SelectList(_produtoDAO.ListarProdutos(), "Id", "Nome");
             ViewBag.Categorias = new SelectList(_categoriaDAO.ListarCategorias(), "Id", "Nome");
@@ -86,9 +93,25 @@ namespace ControleEstoqueASP.Controllers
                 m.Fornecedor = m.Produto.Fornecedor;
                 m.TipoMovimento = drpTipoMovimento;
                 m.EnderecoEstoque = (_estoqueDAO.BuscarEstoquePorId(drpEnderecoEstoque)).Localizacao;
-                
-                _movimentoDAO.LancarMovimento(m);
-                _estoqueDAO.AtualizarEnderecoEstoque(m);
+
+                switch (drpTipoMovimento)
+                {
+                    case "Entrada":
+                        _movimentoDAO.LancarMovimento(m);
+                        _estoqueDAO.AtualizarEnderecoEstoque(m);
+                        break;
+                    case "Saida":
+                        _movimentoDAO.LancarMovimento(m);
+                        _estoqueDAO.AtualizarEnderecoEstoque(m);
+                        break;
+                    case "Devolucao":
+                        _devolucaoDAO.LancaDevolucao(m);
+                        _estoqueDAO.AtualizarEnderecoEstoque(m);
+                        break;
+                    default:
+                        break;
+                }
+
                 return RedirectToAction("Index");
             }
             return View(m);

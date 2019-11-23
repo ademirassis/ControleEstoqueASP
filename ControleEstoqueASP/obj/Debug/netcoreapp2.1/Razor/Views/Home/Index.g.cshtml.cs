@@ -62,7 +62,7 @@ using ControleEstoqueASP.Models;
             WriteLiteral("\r\n<h2>Página Inicial</h2>\r\n\r\n<div class=\"container-fluid text-center col-sm-3\" >\r\n    ");
             EndContext();
             BeginContext(174, 68, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "a283ba5cdd6144d9a4e55dc2c7412ad1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "6866a868f8ab443ea428111dfaece715", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

@@ -10,26 +10,26 @@
         <legend>Movimentação de Estoque</legend>
         <div asp-validation-summary="ModelOnly" class="alert alert-dismissible alert-warning"></div>
 
-            <div class="form-group" id="Produto">
-                <label asp-for="Produto"></label>
-                <select asp-items="@ViewBag.Produtos" class="form-control" name="drpProdutos" id="drpProdutos">
-                    <option value="value">-- Selecione --</option>
-                </select>
-            </div>
+        <div class="form-group" id="Produto">
+            <label asp-for="Produto"></label>
+            <select asp-items="@ViewBag.Produtos" class="form-control" name="drpProdutos" id="drpProdutos">
+                <option value="value">-- Selecione --</option>
+            </select>
+        </div>
 
-            @*<div class="form-group" id="Categoria">
+        @*<div class="form-group" id="Categoria">
                 <select id="categoria_atualizaSelect" name="Categoria" asp-for="Id" asp-items='@(new SelectList(string.Empty,"Id","Nome"))'></select>
             </div>*@
 
-            <div class="form-group" id="Categoria">
-                <label asp-for="Categoria"></label>
-                <input type="text" readonly="" class="form-control" id="categoriaSelected" />
-            </div>
+        <div class="form-group" id="Categoria">
+            <label asp-for="Categoria"></label>
+            <input type="text" readonly="" class="form-control" id="categoriaSelected" />
+        </div>
 
-            <div class="form-group" id="Fornecedor">
-                <label asp-for="Fornecedor"></label>
-                <input type="text" readonly="" class="form-control" id="fornecedorSelected" />
-            </div>
+        <div class="form-group" id="Fornecedor">
+            <label asp-for="Fornecedor"></label>
+            <input type="text" readonly="" class="form-control" id="fornecedorSelected" />
+        </div>
 
         <div class="form-group" id="Quantidade">
             <label asp-for="Quantidade"></label>
@@ -66,33 +66,28 @@
 </div>
 
 <script type="text/javascript">
-
     $(document).ready(function () {
         $('#drpProdutos').on('change', function () {
             var produtoId = $('#drpProdutos option:selected').val();
             //alert(produtoId);
-
             $.ajax({
                 type: 'GET',
                 data: { produtoId: parseInt(produtoId) },
-                dataType: "json", 
+                dataType: "json",
                 url: '@Url.Action("LoadCategoria", "Movimento")',
                 success: function (myJsonCategoria) {
                     document.getElementById("categoriaSelected").value = myJsonCategoria.nome;
                 }
             });
-
             $.ajax({
                 type: 'GET',
                 data: { produtoId: parseInt(produtoId) },
-                dataType: "json", 
+                dataType: "json",
                 url: '@Url.Action("LoadFornecedor", "Movimento")',
                 success: function (myJsonFornecedor) {
                     document.getElementById("fornecedorSelected").value = myJsonFornecedor.nome;
                 }
             });
-
         });
     });
-
 </script>

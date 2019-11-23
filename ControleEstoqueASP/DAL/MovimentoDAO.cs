@@ -35,6 +35,13 @@ namespace ControleEstoqueASP.DAL
                 .Where(x => x.TipoMovimento.Equals(TipoMovimento)).ToList();
         }
 
+        public Movimento BuscarMovimentoPorId(int id)
+        {
+            return _context.Movimentos
+                .Include("Produto").Include("Categoria").Include("Fornecedor")
+                .FirstOrDefault(x => x.Id.Equals(id));
+        }
+
         public List<Movimento> BuscarMovimentoPorData(DateTime CriadoEm)
         {
             return _context.Movimentos

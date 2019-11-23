@@ -1,0 +1,46 @@
+﻿@model ControleEstoqueASP.Models.Movimento
+
+@{
+    ViewData["Title"] = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>@Model.Produto.Nome </h3>
+
+<table class="table table-hover">
+    <tr>
+        <td><b>Tipo Movimento: </b></td>
+        <td> @Model.TipoMovimento </td>
+    </tr>
+    <tr>
+        <td><b>Localidade: </b></td>
+        <td> @Model.EnderecoEstoque </td>
+    </tr>
+    <tr>
+        <td><b>Quantidade: </b></td>
+        <td> @Model.Quantidade </td>
+    </tr>
+    <tr>
+        <td><b>Preço: </b></td>
+        <td> @Model.Produto.Preco.ToString("C2")</td>
+    </tr>
+    <tr>
+        <td><b>Categoria: </b></td>
+        <td>@Model.Categoria.Nome</td>
+    </tr>
+    <tr>
+        <td><b>Fornecedor: </b></td>
+        <td>@Model.Fornecedor.Nome</td>
+    </tr>
+    <tr>
+        <td><b>Criado em:</b></td>
+        <td>@Model.CriadoEm</td>
+    </tr>
+</table>
+
+<div>
+    <div class="float-right">
+        <a href="~/Movimento/Index" class="btn btn-primary mb-2">Voltar</a>
+    </div>
+</div>
+<br/>
