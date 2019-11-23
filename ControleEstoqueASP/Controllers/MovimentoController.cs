@@ -6,9 +6,12 @@ using ControleEstoqueASP.DAL;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc;
 using ControleEstoqueASP.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ControleEstoqueASP.Controllers
 {
+    [Authorize]
+    //[Authorize(Roles = "ADM")]
     public class MovimentoController : Controller
     {
         private readonly MovimentoDAO _movimentoDAO;

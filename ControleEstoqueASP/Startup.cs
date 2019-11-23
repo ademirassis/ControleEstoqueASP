@@ -7,6 +7,7 @@ using ControleEstoqueASP.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -45,6 +46,16 @@ namespace ControleEstoqueASP
             services.AddDbContext<Context>(options => options.UseSqlServer
             (Configuration.GetConnectionString("ControleEstoqueConnection")));
 
+            //Configurar o Identity na aplicação
+            services.AddIdentity<UsuarioLogado, IdentityRole>().
+                AddEntityFrameworkStores<Context>().AddDefaultTokenProviders();
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/Usuario/Login";
+                options.AccessDeniedPath = "/Usuario/AcessoNegado";
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -62,6 +73,7 @@ namespace ControleEstoqueASP
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

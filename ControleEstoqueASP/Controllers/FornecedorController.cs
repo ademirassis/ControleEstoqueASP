@@ -4,10 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using ControleEstoqueASP.DAL;
 using ControleEstoqueASP.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ControleEstoqueASP.Controllers
 {
+    [Authorize]
+    //[Authorize(Roles = "ADM")]
     public class FornecedorController : Controller
     {
         private readonly FornecedorDAO _fornecedorDAO;
