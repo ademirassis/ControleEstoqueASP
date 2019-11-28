@@ -23,12 +23,12 @@
 
         <div class="form-group" id="Categoria">
             <label asp-for="Categoria"></label>
-            <input type="text" readonly="" class="form-control" id="categoriaSelected" />
+            <input type="text" disabled class="form-control" id="categoriaSelected" />
         </div>
 
         <div class="form-group" id="Fornecedor">
             <label asp-for="Fornecedor"></label>
-            <input type="text" readonly="" class="form-control" id="fornecedorSelected" />
+            <input type="text" disabled class="form-control" id="fornecedorSelected" />
         </div>
 
         <div class="form-group" id="Quantidade">
@@ -39,14 +39,14 @@
 
         <div class="form-group" id="TipoMovimento">
             <label asp-for="TipoMovimento"></label>
-            <select asp-items="@ViewBag.TipoMovimento" class="form-control" name="drpTipoMovimento">
+            <select asp-items="@ViewBag.TipoMovimento" class="form-control" name="drpTipoMovimento" id="drpTipoMovimento">
                 <option value="value">-- Selecione --</option>
             </select>
         </div>
 
         <div class="form-group" id="EnderecoEstoque">
             <label asp-for="EnderecoEstoque"></label>
-            <select asp-items="@ViewBag.EnderecoEstoque" class="form-control" name="drpEnderecoEstoque">
+            <select asp-items="@ViewBag.EnderecoEstoque" class="form-control" name="drpEnderecoEstoque" id="drpEnderecoEstoque">
                 <option value="value">-- Selecione --</option>
             </select>
         </div>
@@ -79,6 +79,7 @@
                     document.getElementById("categoriaSelected").value = myJsonCategoria.nome;
                 }
             });
+
             $.ajax({
                 type: 'GET',
                 data: { produtoId: parseInt(produtoId) },
@@ -89,5 +90,26 @@
                 }
             });
         });
+
+        $('#drpTipoMovimento').on('change', function () {
+            var TipoMovimento = $('#drpTipoMovimento option:selected').val();
+
+            switch (TipoMovimento) {
+                case "Entrada":
+                    break;
+                case "Saida":
+                    document.getElementById('drpEnderecoEstoque').setAttribute('disabled', true);
+                    break;
+                case "Devolucao":
+                    document.getElementById('drpEnderecoEstoque').setAttribute('disabled', true);
+                    break;
+                default:
+                    break;
+            }
+
+
     });
+
+});
+
 </script>

@@ -24,9 +24,13 @@ namespace ControleEstoqueASP.DAL
 
         public bool CadastrarUsuario(Usuario u)
         {
-            _context.Usuarios.Add(u);
-            _context.SaveChanges();
-            return true;
+            if (BuscarUsuarioPorCpf(u) == null)
+            {
+                _context.Usuarios.Add(u);
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public Usuario BuscarUsuarioPorNome

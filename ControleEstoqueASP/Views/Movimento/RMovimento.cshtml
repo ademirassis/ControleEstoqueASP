@@ -1,0 +1,56 @@
+﻿@model List<Movimento>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DateTime dataHora = DateTime.Now;
+}
+
+
+<h2>Relatório de Entradas</h2>
+
+<div class="tab-pane fade active show" id="entrada">
+    <br /><p> <a class="btn btn-primary" asp-action="Cadastrar">Cadastrar</a> </p>
+    <table style="margin-top:15px;margin-bottom:15px" class="table table-hover">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Categoria</th>
+                <th>Fornecedor</th>
+                <th>Quantidade</th>
+                <th>Valor Unitário</th>
+                <th>Valor Total</th>
+                <th>Tipo Movimento</th>
+                <th>Criado em</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Movimento item in Model)
+                    {
+            <tr>
+                <td>@item.Produto.Nome</td>
+                <td>@item.Categoria.Nome</td>
+                <td>@item.Fornecedor.Nome</td>
+                <td>@item.Quantidade.ToString()</td>
+                <td>@item.Produto.Preco.ToString("C2")</td>
+                <td>
+                    @{
+                                    double subtotal = item.Produto.Preco * item.Quantidade;
+                    }
+                    @subtotal.ToString("C2")
+                </td>
+                <td>@item.TipoMovimento</td>
+                <td>@item.CriadoEm</td>
+                <td>
+                    <a asp-action="Detalhes" asp-route-id="@item.Id"
+                        class="btn btn-outline-info">Detalhes</a>
+                </td>
+            </tr>
+                    }
+        </tbody>
+    </table>
+    <p>
+        <b>Dados atualizados em: </b> @dataHora
+    </p>
+</div>

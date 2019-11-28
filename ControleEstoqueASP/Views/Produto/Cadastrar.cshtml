@@ -29,6 +29,7 @@
             <select asp-items="@ViewBag.Categorias" class="form-control" name="drpCategorias">
                 <option value="value">-- Selecione --</option>
             </select>
+            <span asp-validation-for="Categoria" class="text-danger"></span>
         </div>
 
         <div class="form-group" id="Fornecedor">
@@ -36,11 +37,12 @@
             <select asp-items="@ViewBag.Fornecedores" class="form-control" name="drpFornecedores">
                 <option value="value">-- Selecione --</option>
             </select>
+            <span asp-validation-for="Fornecedor" class="text-danger"></span>
         </div>
 
         <div class="form-group" id="Preco">
             <label asp-for="Preco"></label>
-            <input type="text" asp-for="Preco"
+            <input type="number" asp-for="Preco"
                    class="form-control" />
             <span asp-validation-for="Preco" class="text-danger"></span>
         </div>

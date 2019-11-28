@@ -42,6 +42,26 @@ namespace ControleEstoqueASP.Controllers
             return View(_movimentoDAO.ListarMovimento());
         }
 
+        public IActionResult RMovimento()
+        {
+            ViewBag.Produtos = new SelectList(_produtoDAO.ListarProdutos(), "Id", "Nome", "Preco");
+            ViewBag.Categorias = new SelectList(_categoriaDAO.ListarCategorias(), "Id", "Nome");
+            ViewBag.Fornecedores = new SelectList(_fornecedorDAO.ListarFornecedores(), "Id", "Nome");
+            ViewBag.DataHora = DateTime.Now;
+
+            return View(_movimentoDAO.ListarMovimento());
+        }
+
+        public IActionResult RPosicao()
+        {
+            ViewBag.Produtos = new SelectList(_produtoDAO.ListarProdutos(), "Id", "Nome", "Preco");
+            ViewBag.Categorias = new SelectList(_categoriaDAO.ListarCategorias(), "Id", "Nome");
+            ViewBag.Fornecedores = new SelectList(_fornecedorDAO.ListarFornecedores(), "Id", "Nome");
+            ViewBag.DataHora = DateTime.Now;
+
+            return View(_movimentoDAO.ListarMovimento());
+        }
+
         public IActionResult Cadastrar()
         {
             ViewBag.Produtos = new SelectList(_produtoDAO.ListarProdutos(), "Id", "Nome");
@@ -83,7 +103,7 @@ namespace ControleEstoqueASP.Controllers
         }
 
         [HttpPost]
-        public IActionResult Cadastrar(Movimento m, int drpProdutos, string drpTipoMovimento, int? drpEnderecoEstoque)
+        public IActionResult Cadastrar(Movimento m, int? drpProdutos, string drpTipoMovimento, int? drpEnderecoEstoque)
         {
             ViewBag.Produtos = new SelectList(_produtoDAO.ListarProdutos(), "Id", "Nome");
             ViewBag.Categorias = new SelectList(_categoriaDAO.ListarCategorias(), "Id", "Nome");
@@ -92,14 +112,14 @@ namespace ControleEstoqueASP.Controllers
             if (ModelState.IsValid)
             {
                 m.Produto = _produtoDAO.BuscarProdutoPorId(drpProdutos);
+                m.TipoMovimento = drpTipoMovimento;
                 m.Categoria = m.Produto.Categoria;
                 m.Fornecedor = m.Produto.Fornecedor;
-                m.TipoMovimento = drpTipoMovimento;
-                m.EnderecoEstoque = (_estoqueDAO.BuscarEstoquePorId(drpEnderecoEstoque)).Localizacao;
 
                 switch (drpTipoMovimento)
                 {
                     case "Entrada":
+                        m.EnderecoEstoque = (_estoqueDAO.BuscarEstoquePorId(drpEnderecoEstoque)).Localizacao;
                         _movimentoDAO.LancarMovimento(m);
                         _estoqueDAO.AtualizarEnderecoEstoque(m);
                         break;

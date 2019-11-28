@@ -42,9 +42,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="~/Movimento/Index">Movimentação</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Relatórios</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Relatórios</a>
+                    <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 40px, 0px);">
+                        <a class="dropdown-item" href="#">Devoluções</a>
+                        <a class="dropdown-item" href="#">Mapa Estoque Atual</a>
+                        <a class="dropdown-item" href="~/Movimento/RMovimento">Movimentos</a>
+                        <a class="dropdown-item" href="#">Posição de Estoque</a>
+                    </div>
                 </li>
+
             </ul>
             <ul class="form-inline my-2 my-lg-0">
                 @if (SignManager.IsSignedIn(User))
@@ -81,7 +88,7 @@
     <hr />
     <footer>
         <p style="text-align:center">
-            &copy; @DateTime.Now.Year - Desenvolvido por Ademir Assis e Iranei Claudio
+            &copy; @DateTime.Now.Year - Desenvolvido por Ademir Assis, Claudio Nogatz e Iranei Claudio
         </p>
     </footer>
 

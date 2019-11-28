@@ -19,9 +19,11 @@ namespace ControleEstoqueASP.Models
         public int Id { get; set; }
 
         [Display(Name = "Nome:")]
+        [Required(ErrorMessage = "Campo obrigatório!")]
         public string Nome { get; set; }
 
         [Display(Name = "Descrição:")]
+        [Required(ErrorMessage = "Campo obrigatório!")]
         public string Descricao { get; set; }
 
         [Display(Name = "Criado em:")]

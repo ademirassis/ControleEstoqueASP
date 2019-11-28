@@ -77,3 +77,4 @@ C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqu
 C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\ControleEstoqueASP.pdb
 C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\ControleEstoqueASP.csproj.CopyComplete
 C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\Login.g.cshtml.cs
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Movimento\RMovimento.g.cshtml.cs
