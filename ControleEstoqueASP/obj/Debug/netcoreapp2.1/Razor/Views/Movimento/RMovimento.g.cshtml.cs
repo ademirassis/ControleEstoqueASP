@@ -19,12 +19,12 @@ using ControleEstoqueASP;
 #line default
 #line hidden
 #line 2 "C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\Views\_ViewImports.cshtml"
-using ControleEstoqueASP.Models;
+using Domain;
 
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0df4b9b9dce5a912442af605b383c0f69d454226", @"/Views/Movimento/RMovimento.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"19d1035c855257631bd9da4d84a0d846405380bb", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"206573e2b9751e0fccf2a266712657af36dee417", @"/Views/_ViewImports.cshtml")]
     public class Views_Movimento_RMovimento : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Movimento>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-primary"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -68,7 +68,7 @@ using ControleEstoqueASP.Models;
             WriteLiteral("\r\n\r\n<h2>Relatório de Entradas</h2>\r\n\r\n<div class=\"tab-pane fade active show\" id=\"entrada\">\r\n    <br /><p> ");
             EndContext();
             BeginContext(259, 63, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe615d06e571430fac86cc5cc16b4cd3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4726853a972647b8b130c3b971f60a37", async() => {
                 BeginContext(309, 9, true);
                 WriteLiteral("Cadastrar");
                 EndContext();
@@ -206,7 +206,7 @@ using ControleEstoqueASP.Models;
             WriteLiteral("</td>\r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(1531, 115, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4cd0d14ba95d4ae1a30a23281bfa77dc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "012c41338fdb46d58c7ebecedb285f34", async() => {
                 BeginContext(1634, 8, true);
                 WriteLiteral("Detalhes");
                 EndContext();

@@ -1,0 +1,8 @@
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\Domain\bin\Debug\netcoreapp2.1\Domain.deps.json
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\Domain\bin\Debug\netcoreapp2.1\Domain.dll
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\Domain\bin\Debug\netcoreapp2.1\Domain.pdb
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.csproj.CoreCompileInputs.cache
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.AssemblyInfoInputs.cache
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.AssemblyInfo.cs
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.dll
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.pdb

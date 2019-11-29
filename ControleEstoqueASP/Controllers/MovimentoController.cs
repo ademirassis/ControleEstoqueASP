@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ControleEstoqueASP.DAL;
+using Domain;
+using Repository;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc;
-using ControleEstoqueASP.Models;
 using Microsoft.AspNetCore.Authorization;
 
 namespace ControleEstoqueASP.Controllers

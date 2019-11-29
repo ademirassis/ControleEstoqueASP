@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ControleEstoqueASP.DAL;
-using ControleEstoqueASP.Models;
+using Domain;
+using Repository;
 using Microsoft.AspNetCore.Identity;
 
 namespace ControleEstoqueASP.Controllers
