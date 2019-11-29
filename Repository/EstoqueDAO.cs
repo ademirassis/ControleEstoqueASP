@@ -34,8 +34,11 @@ namespace Repository
 
         public List<Estoque> ListarEstoquePorProduto()
         {
-            return _context.Estoque.Include("Produto").Include("Produto.Categoria").Include("Produto.Fornecedor")
-                      .Where(x => !x.Produto.Equals(null)).ToList();
+            return _context.Estoque.
+                Include("Produto").
+                Include("Produto.Categoria").
+                Include("Produto.Fornecedor").
+                Where(x => !x.Produto.Equals(null)).ToList();
         }
 
         public List<Estoque> ListarEnderecoEstoqueProduto(Movimento m)
@@ -54,24 +57,33 @@ namespace Repository
             Estoque atualizaRegistro = _context.Estoque.Include("Produto").Include("Produto.Categoria").Include("Produto.Fornecedor")
                 .Where(x => x.Localizacao == m.EnderecoEstoque).FirstOrDefault();
 
-            if (m.TipoMovimento == "Entrada")
+            switch (m.TipoMovimento)
             {
-                atualizaRegistro.Quantidade = m.Quantidade;
-                atualizaRegistro.Produto = m.Produto;
-                atualizaRegistro.AtualizadoEm = DateTime.Now;
+                case "Entrada":
+                    atualizaRegistro.Quantidade = m.Quantidade;
+                    atualizaRegistro.Produto = m.Produto;
+                    atualizaRegistro.AtualizadoEm = DateTime.Now;
 
-                _context.Entry(atualizaRegistro).State = EntityState.Modified;
-                _context.SaveChanges();
-            }
-            else
-            {
-                atualizaRegistro.Quantidade = 0;
-                atualizaRegistro.Produto = null;
-                atualizaRegistro.AtualizadoEm = DateTime.Now;
+                    _context.Entry(atualizaRegistro).State = EntityState.Modified;
+                    _context.SaveChanges();
+                    break;
+                case "Saida":
+                    atualizaRegistro.Quantidade = 0;
+                    atualizaRegistro.Produto = null;
+                    atualizaRegistro.AtualizadoEm = DateTime.Now;
 
-                _context.Entry(atualizaRegistro).State = EntityState.Modified;
-                _context.SaveChanges();
+                    _context.Entry(atualizaRegistro).State = EntityState.Modified;
+                    _context.SaveChanges();
+                    break;
+                case "Devolucao":
+                    atualizaRegistro.AtualizadoEm = DateTime.Now;
+                    _context.Entry(atualizaRegistro).State = EntityState.Modified;
+                    _context.SaveChanges();
+                    break;
+                default:
+                    break;
             }
+
         }
     }
 }
