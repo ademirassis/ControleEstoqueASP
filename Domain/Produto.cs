@@ -25,7 +25,7 @@ namespace Domain
         [Display(Name = "Descrição do produto:")]
         [Required(ErrorMessage = "Campo Obrigatório!")]
         [MinLength(5, ErrorMessage = "No mínimo 5 caracteres")]
-        [MaxLength(100, ErrorMessage = "No mínimo 100 caracteres")]
+        [MaxLength(100, ErrorMessage = "No máximo 100 caracteres")]
         public string Descricao { get; set; }
 
         [Display(Name = "Categoria do produto:")]

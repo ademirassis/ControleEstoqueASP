@@ -32,7 +32,10 @@ namespace Repository
 
         public Produto BuscarProdutoPorId(int? id)
         {
-            return _context.Produtos.Find(id);
+            return _context.Produtos.
+                Include(x => x.Categoria).
+                Include(x => x.Fornecedor).
+                FirstOrDefault(x => x.Id.Equals(id));
         }
 
         public bool AlterarProduto(Produto p)
@@ -50,7 +53,9 @@ namespace Repository
 
         public List<Produto> ListarProdutos()
         {
-            return _context.Produtos.ToList();
+            return _context.Produtos.
+                Include(x => x.Categoria).Include(x => x.Fornecedor).
+                ToList();
         }
 
         public Produto VinculoCategoria(Categoria c) =>
