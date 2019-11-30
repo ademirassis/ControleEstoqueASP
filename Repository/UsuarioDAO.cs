@@ -43,7 +43,7 @@ namespace Repository
             _context.Usuarios.FirstOrDefault
             (x => x.Cpf.Equals(u.Cpf));
 
-        public void AlterarUsuario(Usuario u)
+        public bool AlterarUsuario(Usuario u)
         {
             var atualizaRegistro = _context.Usuarios.Where(x => x.Id == u.Id).FirstOrDefault();
             atualizaRegistro.Nome = u.Nome;
@@ -54,6 +54,12 @@ namespace Repository
 
             _context.Entry(atualizaRegistro).State = EntityState.Modified;
             _context.SaveChanges();
+            return true;
+        }
+
+        public Usuario BuscarUsuarioPorId(int? id)
+        {
+            return _context.Usuarios.Find(id);
         }
 
         public List<Usuario> ListarUsuarios()

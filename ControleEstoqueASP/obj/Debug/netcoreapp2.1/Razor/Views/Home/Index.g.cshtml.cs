@@ -62,7 +62,7 @@ using Domain;
             WriteLiteral("\r\n<h2>Página Inicial</h2>\r\n\r\n<div class=\"container-fluid text-center col-sm-3\" >\r\n    ");
             EndContext();
             BeginContext(174, 68, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b0492c8c93eb45e2a4886e215aa0a045", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "5f22510ae05649c7a0a935f08c8c48d6", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

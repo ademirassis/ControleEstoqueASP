@@ -68,7 +68,7 @@ using Domain;
             WriteLiteral("\r\n\r\n<h2>Relatório de Entradas</h2>\r\n\r\n<div class=\"tab-pane fade active show\" id=\"entrada\">\r\n    <br /><p> ");
             EndContext();
             BeginContext(259, 63, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c14c4e72f53b4afcb65472551e840b5a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1995dbeaedf146c4be44457b1a7164ed", async() => {
                 BeginContext(309, 9, true);
                 WriteLiteral("Cadastrar");
                 EndContext();
@@ -206,7 +206,7 @@ using Domain;
             WriteLiteral("</td>\r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(1531, 115, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bc8c052c63e846dab62d6a2ed6293472", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d0a0041de663416aa6787cd3b2a7f416", async() => {
                 BeginContext(1634, 8, true);
                 WriteLiteral("Detalhes");
                 EndContext();

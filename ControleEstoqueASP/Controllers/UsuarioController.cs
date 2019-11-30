@@ -67,6 +67,36 @@ namespace ControleEstoqueASP.Controllers
             return View(e);
         }
 
+        //Alterar Usuario
+        public IActionResult Alterar(int? id)
+        {
+           Usuario u = _usuarioDAO.BuscarUsuarioPorId(id);
+
+            return View(u);
+        }
+        public IActionResult Remover(int? id)
+        {
+            Usuario u = _usuarioDAO.BuscarUsuarioPorId(id);      
+            _usuarioDAO.RemoverUsuario(u);
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Alterar(Usuario u)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_usuarioDAO.AlterarUsuario(u))
+                {
+                    return RedirectToAction("Index");
+                }
+                ModelState.AddModelError("", "Esse produto já existe!");
+                return View(u);
+            }
+            return View(u);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Cadastrar(Usuario u)
         {
@@ -77,8 +107,8 @@ namespace ControleEstoqueASP.Controllers
                 UserName = u.Email
             };
 
-            //Cadastra o resultado do cadastro
-            IdentityResult result = await _userManager.CreateAsync(usuarioLogado, u.Senha);
+        //Cadastra o resultado do cadastro
+        IdentityResult result = await _userManager.CreateAsync(usuarioLogado, u.Senha);
 
             //Testar o resultado do cadastro
             if (result.Succeeded)

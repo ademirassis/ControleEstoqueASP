@@ -1,0 +1,51 @@
+﻿@model Usuario
+
+<form method="post">
+    <fieldset>
+        <legend>Dados Pessoais</legend>
+
+        <div asp-validation-summary="ModelOnly" class="alert alert-dismissible alert-warning"></div>
+
+        <div class="form-group" id="Id">
+            <label asp-for="Id"></label>
+            <input type="text" asp-for="Id"
+                   class="form-control " readonly />
+        </div>
+
+        <div class="form-group" id="Nome">
+            <label asp-for="Nome"></label>
+            <input type="text" asp-for="Nome"
+                   class="form-control " />
+        </div>
+        <div class="form-group" id="Cpf">
+            <label asp-for="Cpf"></label>
+            <input type="text" asp-for="Cpf"
+                   class="form-control" />
+        </div>
+        <div class="form-group" id="Cargo">
+            <label asp-for="Cargo"></label>
+            <input type="text" asp-for="Cargo"
+                   class="form-control" />
+        </div>
+        <div class="form-group" id="Email">
+            <label asp-for="Email"></label>
+            <input type="text" asp-for="Email"
+                   class="form-control" />
+        </div>
+        <div class="form-group" id="Senha">
+            <label asp-for="Senha"></label>
+            <input type="text" asp-for="Senha"
+                   class="form-control" />
+        </div>
+        <div class="form-group" id="ConfirmacaoSenha">
+            <label asp-for="ConfirmacaoSenha"></label>
+            <input type="text" asp-for="ConfirmacaoSenha"
+                   class="form-control" />
+            <span asp-validation-for="ConfirmacaoSenha" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" value="Alterar" class="btn btn-primary mb-2">Alterar</button>
+            <a asp-action="Index" class="btn btn-primary mb-2">Voltar</a>
+        </div>
+    </fieldset>
+</form>
