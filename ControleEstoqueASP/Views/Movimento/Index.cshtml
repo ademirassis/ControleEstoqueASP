@@ -1,23 +1,44 @@
-﻿@model List<Movimento>
+﻿@model List<Estoque>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
     DateTime dataHora = DateTime.Now;
 }
-
-
-<h2>Gerenciamento de Movimentações</h2>
-
+<fieldset>
+    <legend>Gerenciamento de Movimentações</legend>
+    <legend>Mapa de Estoque - Data: @dataHora</legend>
+</fieldset>
 <div>
-    <div>
-        <br />
-        <br />
-        <h4>Exibir o Mapa do Estoque Atual</h4>
-    </div>
-    <div>
-        <br /><p> <a class="btn btn-primary" asp-action="Cadastrar">Cadastrar</a> </p>
-    </div>    
+    <table class="table table-bordered" style="margin-top:20px">
+        @for (int i = 1; i < 5; i++)
+        {
+            <tr height=90>
+                @for (int y = 1; y < 7; y++)
+                {
+
+                    @foreach (Estoque item in Model)
+                    {
+                        @if (Int32.Parse(item.Localizacao.Substring(1, 1)) == i)
+                        {
+                            @if (item.Localizacao == ("L" + i + "C" + y) && item.Produto != null)
+                            {
+                                <td class="bg-danger align-middle text-center text-white">@item.Localizacao</td>
+                            }
+                            @if (item.Localizacao == ("L" + i + "C" + y) && item.Produto == null)
+                            {
+                                <td class="align-middle text-center">@item.Localizacao</td>
+                            }
+                        }
+                    }
+                }
+
+            </tr>
+        }
+    </table>
+</div>
+<div>
+    <br /><p> <a class="btn btn-primary" asp-action="Cadastrar">Cadastrar</a> </p>
 </div>
 
 

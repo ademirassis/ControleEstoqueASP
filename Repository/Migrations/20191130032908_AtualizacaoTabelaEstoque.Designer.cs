@@ -10,8 +10,8 @@ using Repository;
 namespace Repository.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20191129025925_CriarBanco")]
-    partial class CriarBanco
+    [Migration("20191130032908_AtualizacaoTabelaEstoque")]
+    partial class AtualizacaoTabelaEstoque
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -65,6 +65,29 @@ namespace Repository.Migrations
                     b.HasIndex("ProdutoId");
 
                     b.ToTable("Devolucoes");
+                });
+
+            modelBuilder.Entity("Domain.Endereco", b =>
+                {
+                    b.Property<int>("EnderecoId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Bairro");
+
+                    b.Property<string>("Cep");
+
+                    b.Property<string>("Cidade");
+
+                    b.Property<DateTime>("CriadoEm");
+
+                    b.Property<string>("Estado");
+
+                    b.Property<string>("Logradouro");
+
+                    b.HasKey("EnderecoId");
+
+                    b.ToTable("Enderecos");
                 });
 
             modelBuilder.Entity("Domain.Estoque", b =>
@@ -142,7 +165,7 @@ namespace Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategoriaId");
+                    b.Property<int?>("CategoriaId");
 
                     b.Property<DateTime>("CriadoEm");
 
@@ -150,7 +173,7 @@ namespace Repository.Migrations
                         .IsRequired()
                         .HasMaxLength(100);
 
-                    b.Property<int>("FornecedorId");
+                    b.Property<int?>("FornecedorId");
 
                     b.Property<string>("Nome")
                         .IsRequired();
@@ -180,10 +203,10 @@ namespace Repository.Migrations
 
                     b.Property<DateTime>("CriadoEm");
 
-                    b.Property<DateTime>("DataNascimento");
-
                     b.Property<string>("Email")
                         .IsRequired();
+
+                    b.Property<int?>("EnderecoId");
 
                     b.Property<string>("Nome")
                         .IsRequired();
@@ -191,13 +214,9 @@ namespace Repository.Migrations
                     b.Property<string>("Senha")
                         .IsRequired();
 
-                    b.Property<string>("Sexo")
-                        .IsRequired();
-
-                    b.Property<string>("Telefone")
-                        .IsRequired();
-
                     b.HasKey("Id");
+
+                    b.HasIndex("EnderecoId");
 
                     b.ToTable("Usuarios");
                 });
@@ -404,13 +423,18 @@ namespace Repository.Migrations
                 {
                     b.HasOne("Domain.Categoria", "Categoria")
                         .WithMany()
-                        .HasForeignKey("CategoriaId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("CategoriaId");
 
                     b.HasOne("Domain.Fornecedor", "Fornecedor")
                         .WithMany()
-                        .HasForeignKey("FornecedorId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("FornecedorId");
+                });
+
+            modelBuilder.Entity("Domain.Usuario", b =>
+                {
+                    b.HasOne("Domain.Endereco", "Endereco")
+                        .WithMany()
+                        .HasForeignKey("EnderecoId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Repository;
 
 namespace ControleEstoqueASP.Controllers
 {
@@ -11,9 +12,19 @@ namespace ControleEstoqueASP.Controllers
     //[Authorize(Roles = "ADM")]
     public class EstoqueController : Controller
     {
-        public IActionResult Index()
+        private readonly EstoqueDAO _estoqueDAO;
+
+        public EstoqueController(EstoqueDAO estoqueDAO)
         {
-            return View();
+            _estoqueDAO = estoqueDAO;
         }
+
+        public IActionResult RMapaEstoque()
+        {
+            return View(_estoqueDAO.ListarEnderecoEstoqueSituacao());
+        }
+
+
+
     }
 }

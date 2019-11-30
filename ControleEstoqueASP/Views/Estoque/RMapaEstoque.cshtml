@@ -1,0 +1,35 @@
+﻿@model List<Estoque>
+
+@{
+    ViewData["Title"] = "RMapaEstoque";
+    DateTime dataHora = DateTime.Now;
+}
+
+<fieldset><legend>Mapa de Estoque - Data: @dataHora</legend></fieldset>
+
+<table class="table table-bordered" style="margin-top:20px">
+    @for (int i = 1; i < 5; i++)
+     {
+        <tr height=100>
+            @for (int y = 1; y < 7; y++)
+            {
+
+                @foreach (Estoque item in Model)
+                {
+                    @if (Int32.Parse(item.Localizacao.Substring(1, 1)) == i)
+                    {
+                        @if (item.Localizacao == ("L" + i + "C" + y) && item.Produto != null)
+                         {
+                            <td class="bg-danger align-middle text-center text-white">@item.Localizacao</td>
+                         }
+                        @if (item.Localizacao == ("L" + i + "C" + y) && item.Produto == null)
+                         {
+                            <td class="align-middle text-center">@item.Localizacao</td>
+                         }
+                    }
+                }
+            }
+
+        </tr>
+     }
+</table>

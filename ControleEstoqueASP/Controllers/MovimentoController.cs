@@ -39,7 +39,8 @@ namespace ControleEstoqueASP.Controllers
             ViewBag.Fornecedores = new SelectList(_fornecedorDAO.ListarFornecedores(), "Id", "Nome");
             ViewBag.DataHora = DateTime.Now;
 
-            return View(_movimentoDAO.ListarMovimento());
+            //return View(_movimentoDAO.ListarMovimento());
+            return View(_estoqueDAO.ListarEnderecoEstoqueSituacao());
         }
 
         public IActionResult RMovimento()
