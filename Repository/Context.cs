@@ -18,5 +18,6 @@ namespace Repository
         public DbSet<Movimento> Movimentos { get; set; }
         public DbSet<Estoque> Estoque { get; set; }
         public DbSet<Devolucao> Devolucoes { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
     }
 }

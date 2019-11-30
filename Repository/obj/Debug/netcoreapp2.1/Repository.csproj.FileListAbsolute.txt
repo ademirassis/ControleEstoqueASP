@@ -10,3 +10,15 @@ C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\Repository\obj
 C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\Repository\obj\Debug\netcoreapp2.1\Repository.csproj.CopyComplete
 C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\Repository\obj\Debug\netcoreapp2.1\Repository.dll
 C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\Repository\obj\Debug\netcoreapp2.1\Repository.pdb
+C:\GitHub\ControleEstoqueASP\Repository\bin\Debug\netcoreapp2.1\Repository.deps.json
+C:\GitHub\ControleEstoqueASP\Repository\bin\Debug\netcoreapp2.1\Repository.dll
+C:\GitHub\ControleEstoqueASP\Repository\bin\Debug\netcoreapp2.1\Repository.pdb
+C:\GitHub\ControleEstoqueASP\Repository\bin\Debug\netcoreapp2.1\Domain.dll
+C:\GitHub\ControleEstoqueASP\Repository\bin\Debug\netcoreapp2.1\Domain.pdb
+C:\GitHub\ControleEstoqueASP\Repository\obj\Debug\netcoreapp2.1\Repository.csprojAssemblyReference.cache
+C:\GitHub\ControleEstoqueASP\Repository\obj\Debug\netcoreapp2.1\Repository.csproj.CoreCompileInputs.cache
+C:\GitHub\ControleEstoqueASP\Repository\obj\Debug\netcoreapp2.1\Repository.AssemblyInfoInputs.cache
+C:\GitHub\ControleEstoqueASP\Repository\obj\Debug\netcoreapp2.1\Repository.AssemblyInfo.cs
+C:\GitHub\ControleEstoqueASP\Repository\obj\Debug\netcoreapp2.1\Repository.csproj.CopyComplete
+C:\GitHub\ControleEstoqueASP\Repository\obj\Debug\netcoreapp2.1\Repository.dll
+C:\GitHub\ControleEstoqueASP\Repository\obj\Debug\netcoreapp2.1\Repository.pdb

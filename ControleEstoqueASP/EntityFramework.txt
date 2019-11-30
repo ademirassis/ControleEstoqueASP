@@ -30,3 +30,7 @@ Add-Migration NomeMigração
 
 7 - Atualziar o Banco:
 Update-Database -verbose
+
+7 - Adicionar uma migração e atualizar o banco
+	- Add-Migration NomeMigracao -Project: Repository; 
+		Update-Database -verbose -Project:Repository

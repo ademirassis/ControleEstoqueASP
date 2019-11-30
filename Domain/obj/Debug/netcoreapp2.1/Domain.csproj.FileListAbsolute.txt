@@ -6,3 +6,11 @@ C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\Domain\obj\Deb
 C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.AssemblyInfo.cs
 C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.dll
 C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.pdb
+C:\GitHub\ControleEstoqueASP\Domain\bin\Debug\netcoreapp2.1\Domain.deps.json
+C:\GitHub\ControleEstoqueASP\Domain\bin\Debug\netcoreapp2.1\Domain.dll
+C:\GitHub\ControleEstoqueASP\Domain\bin\Debug\netcoreapp2.1\Domain.pdb
+C:\GitHub\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.csproj.CoreCompileInputs.cache
+C:\GitHub\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.AssemblyInfoInputs.cache
+C:\GitHub\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.AssemblyInfo.cs
+C:\GitHub\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.dll
+C:\GitHub\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.pdb

@@ -38,6 +38,7 @@ namespace API
             services.AddScoped<MovimentoDAO>();
             services.AddScoped<ProdutoDAO>();
             services.AddScoped<UsuarioDAO>();
+            services.AddScoped<EnderecoDAO>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

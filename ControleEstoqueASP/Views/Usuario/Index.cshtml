@@ -2,7 +2,6 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
     DateTime dataHora = DateTime.Now;
 }
 
@@ -17,10 +16,9 @@
             <th>Id</th>
             <th>Nome</th>
             <th>CPF</th>
-            <th>Telefone</th>
             <th>E-mail</th>
-            <th>Senha</th>
             <th>Criado em</th>
+            <th></th>
             <th></th>
             <th></th>
         </tr>
@@ -28,23 +26,25 @@
     <tbody>
         @foreach (Usuario item in Model)
         {
-        <tr>
-            <td>@item.Id</td>
-            <td>@item.Nome</td>
-            <td>@item.Cpf</td>
-            <td>@item.Telefone</td>
-            <td>@item.Email</td>
-            <td>@item.Senha</td>
-            <td>@item.CriadoEm</td>
-            <td>
-                <a asp-action="Remover" asp-route-id="@item.Id"
-                   class="btn btn-outline-danger">Remover</a>
-            </td>
-            <td>
-                <a asp-action="Alterar" asp-route-id="@item.Id"
-                   class="btn btn-outline-info">Alterar</a>
-            </td>
-        </tr>
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Nome</td>
+                <td>@item.Cpf</td>
+                <td>@item.Email</td>
+                <td>@item.CriadoEm</td>
+                <td>
+                    <a asp-action="DetalheEndereco" asp-route-id="@item.Endereco.EnderecoId"
+                       class="btn btn-outline-info">Ver Endereço</a>
+                </td>
+                <td>
+                    <a asp-action="Remover" asp-route-id="@item.Id"
+                       class="btn btn-outline-danger">Remover</a>
+                </td>
+                <td>
+                    <a asp-action="Alterar" asp-route-id="@item.Id"
+                       class="btn btn-outline-info">Alterar</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

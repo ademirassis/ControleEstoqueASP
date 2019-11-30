@@ -13,6 +13,7 @@ namespace Domain
         public Usuario()
         {
             CriadoEm = DateTime.Now;
+            Endereco Endereco = new Endereco();
         }
 
         [Key]
@@ -26,21 +27,9 @@ namespace Domain
         [Required(ErrorMessage = "Campo obrigatório!")]
         public string Cpf { get; set; }
 
-        [Display(Name = "Sexo:")]
-        [Required(ErrorMessage = "Campo obrigatório!")]
-        public string Sexo { get; set; }
-
-        [Display(Name = "Data Nascimento:")]
-        [Required(ErrorMessage = "Campo obrigatório!")]
-        public DateTime DataNascimento { get; set; }
-
         [Display(Name = "Cargo:")]
         [Required(ErrorMessage = "Campo obrigatório!")]
         public string Cargo { get; set; }
-
-        [Display(Name = "Telefone:")]
-        [Required(ErrorMessage = "Campo obrigatório!")]
-        public string Telefone { get; set; }
 
         [Display(Name = "E-mail:")]
         [EmailAddress]
@@ -50,6 +39,10 @@ namespace Domain
         [Display(Name = "Senha:")]
         [Required(ErrorMessage = "Campo obrigatório!")]
         public string Senha { get; set; }
+        [NotMapped]
+        [Compare("Senha", ErrorMessage = "Os campos não coincidem!")]
+        public string ConfirmacaoSenha { get; set; }
+        public Endereco Endereco { get; set; }
 
         public DateTime CriadoEm { get; set; }
     }

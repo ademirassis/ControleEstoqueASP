@@ -30,7 +30,7 @@ namespace ControleEstoqueASP
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
+                options.CheckConsentNeeded = context => false; // aceitar API
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
@@ -42,6 +42,7 @@ namespace ControleEstoqueASP
             services.AddScoped<MovimentoDAO>();
             services.AddScoped<ProdutoDAO>();
             services.AddScoped<UsuarioDAO>();
+            services.AddScoped<EnderecoDAO>();
 
             services.AddDbContext<Context>(options => options.UseSqlServer
             (Configuration.GetConnectionString("ControleEstoqueConnection")));

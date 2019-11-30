@@ -1,0 +1,35 @@
+﻿@model Endereco
+
+@{
+    ViewData["Title"] = "DetalheEndereco";
+}
+
+<h2>Detalhe Endereço</h2>
+
+<table style="margin-top:15px;margin-bottom:15px" class="table table-hover-responsive">
+
+    <tr>
+        <th>Id</th>
+        <td>@Model.EnderecoId</td>
+    </tr>
+    <tr>
+        <th>Logradouro</th>
+        <td>@Model.Logradouro</td>
+    </tr>
+    <tr>
+        <th>Bairro</th>
+        <td>@Model.Bairro</td>
+    </tr>
+    <tr>
+        <th>Cidade</th>
+        <td>@Model.Cidade</td>
+    </tr>
+    <tr>
+        <th>UF</th>
+        <td>@Model.Estado</td>
+    </tr>
+
+</table>
+<div>
+    <a asp-action="Index" class="btn btn-primary mb-2">Voltar</a>
+</div>

@@ -48,10 +48,7 @@ namespace Repository
             var atualizaRegistro = _context.Usuarios.Where(x => x.Id == u.Id).FirstOrDefault();
             atualizaRegistro.Nome = u.Nome;
             atualizaRegistro.Cpf = u.Cpf;
-            atualizaRegistro.Sexo = u.Sexo;
-            atualizaRegistro.DataNascimento = u.DataNascimento;
             atualizaRegistro.Cargo = u.Cargo;
-            atualizaRegistro.Telefone = u.Telefone;
             atualizaRegistro.Email = u.Email;
             atualizaRegistro.Senha = u.Senha;
 
@@ -61,7 +58,8 @@ namespace Repository
 
         public List<Usuario> ListarUsuarios()
         {
-            return _context.Usuarios.ToList();
+            return _context.Usuarios.Include(x => x.Endereco).ToList();
+            // .Include("Enderecos").ToList();
         }
 
         public void RemoverUsuario(Usuario u)

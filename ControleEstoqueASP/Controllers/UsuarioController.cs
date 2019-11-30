@@ -6,20 +6,24 @@ using Microsoft.AspNetCore.Mvc;
 using Domain;
 using Repository;
 using Microsoft.AspNetCore.Identity;
+using System.Net;
+using Newtonsoft.Json;
 
 namespace ControleEstoqueASP.Controllers
 {
     public class UsuarioController : Controller
     {
         private readonly UsuarioDAO _usuarioDAO;
+        private readonly EnderecoDAO _enderecoDAO;
         private readonly UserManager<UsuarioLogado> _userManager;
         private readonly SignInManager<UsuarioLogado> _signManager;
 
-        public UsuarioController(UsuarioDAO usuarioDAO, 
+        public UsuarioController(UsuarioDAO usuarioDAO, EnderecoDAO enderecoDAO,
             UserManager<UsuarioLogado> userManager,
             SignInManager<UsuarioLogado> signInManager)
         {
             _usuarioDAO = usuarioDAO;
+            _enderecoDAO = enderecoDAO;
             _userManager = userManager;
             _signManager = signInManager;
         }
@@ -32,7 +36,35 @@ namespace ControleEstoqueASP.Controllers
 
         public IActionResult Cadastrar()
         {
-            return View();
+            Usuario u = new Usuario();
+
+            if (TempData["Endereco"] != null)
+            {
+                string resultado = TempData["Endereco"].ToString();
+                Endereco endereco = JsonConvert.DeserializeObject<Endereco>(resultado);
+                u.Endereco = endereco;
+                ViewBag.id = 1;
+            }
+            return View(u);
+        }
+
+        [HttpPost]
+        public IActionResult BuscarCep(Usuario u)
+        {
+            string url = "https://api.postmon.com.br/v1/cep/" + u.Endereco.Cep;
+            WebClient client = new WebClient();
+
+            // Transport string
+            TempData["Endereco"] = client.DownloadString(url);
+
+            return RedirectToAction(nameof(Cadastrar));
+        }
+        // Detalhar endereco
+        public IActionResult DetalheEndereco(int id)
+        {
+            Endereco e = _enderecoDAO.BuscarEnderecoPorId(id);
+
+            return View(e);
         }
 
         [HttpPost]
