@@ -26,6 +26,16 @@ namespace Repository
             return _context.Estoque.Find(id);
         }
 
+        public Estoque BuscarEstoquePorProduto(int? produtoId)
+        {
+            Estoque e = _context.Estoque.
+                Include(x => x.Produto).
+                Include(x => x.Produto.Categoria).
+                Include(x => x.Produto.Fornecedor).
+                FirstOrDefault(x => x.Produto.Id == produtoId);
+            return e;
+        }
+
         public List<Estoque> ListarEnderecoEstoqueDisponivel()
         {
             return _context.Estoque.Include("Produto").Include("Produto.Categoria").Include("Produto.Fornecedor")
@@ -72,11 +82,6 @@ namespace Repository
                     atualizaRegistro.Produto = null;
                     atualizaRegistro.AtualizadoEm = DateTime.Now;
 
-                    _context.Entry(atualizaRegistro).State = EntityState.Modified;
-                    _context.SaveChanges();
-                    break;
-                case "Devolucao":
-                    atualizaRegistro.AtualizadoEm = DateTime.Now;
                     _context.Entry(atualizaRegistro).State = EntityState.Modified;
                     _context.SaveChanges();
                     break;

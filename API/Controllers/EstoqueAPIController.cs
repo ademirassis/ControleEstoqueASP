@@ -26,28 +26,20 @@ namespace API.Controllers
         [Route("ListarEstoquePorProduto")]
         public IActionResult ListarEstoquePorProduto()
         {
-            List<dynamic> estoqueDyn = new List<dynamic>();
-            List<Estoque> estoque = new List<Estoque>();
-
-            estoque = _estoqueDAO.ListarEstoquePorProduto();
-
-            foreach (Estoque item in estoque)
-            {
-                dynamic d = new
-                {
-                    Produto = item.Produto.Nome,
-                    Categoria = item.Produto.Categoria.Nome,
-                    Fornecedor = item.Produto.Fornecedor.Nome,
-                    Localizacao = item.Localizacao,
-                    Quantidade = item.Quantidade,
-                    Preco = item.Produto.Preco.ToString("C2"),
-                    Total = (Convert.ToInt32(item.Quantidade) * item.Produto.Preco).ToString("C2"),
-                    AtualizadoEm = (item.AtualizadoEm).Day + "/" + (item.AtualizadoEm).Month + "/" + (item.AtualizadoEm).Year
-                };
-                estoqueDyn.Add(d);
-            }
-
             return Ok(_estoqueDAO.ListarEstoquePorProduto());
+        }
+
+        //GET: /api/Estoque/BuscarEstoquePorProduto/1
+        [HttpGet]
+        [Route("BuscarEstoquePorProduto/{id}")]
+        public IActionResult BuscarEstoquePorProduto(int id)
+        {
+            Estoque e = _estoqueDAO.BuscarEstoquePorProduto(id);
+            if (e != null)
+            {
+                return Ok(e);
+            }
+            return NotFound(new { msg = "Produto não encontrado!" });
         }
     }
 }
