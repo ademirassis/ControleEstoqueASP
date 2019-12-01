@@ -75,12 +75,12 @@ using Domain;
             WriteLiteral("\r\n<!DOCTYPE html>\r\n\r\n<html>\r\n");
             EndContext();
             BeginContext(187, 476, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc851d9371ca48cf97f6037dfa698513", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "09405fc912cc42acb0c26e8d9239ad16", async() => {
                 BeginContext(193, 193, true);
                 WriteLiteral("\r\n    <!-- Meta tags Obrigatórias -->\r\n    <meta charset=\"utf-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n\r\n    <!-- Bootstrap CSS -->\r\n    ");
                 EndContext();
                 BeginContext(386, 56, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f265afe1180a499997ef992fdb64bc94", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f4e4b2bc22ab45f68a7e68b70259f539", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -127,7 +127,7 @@ using Domain;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(665, 4688, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "00299fd42f5141458ee3a18605964dac", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6542a7354e654551ad7abb2ad4559122", async() => {
                 BeginContext(671, 4, true);
                 WriteLiteral("\r\n\r\n");
                 EndContext();
@@ -135,7 +135,7 @@ using Domain;
                 WriteLiteral("    <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\r\n\r\n        ");
                 EndContext();
                 BeginContext(781, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "11d6f9e2a19c416598c1e4c0ecf5e037", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "152f6c4aade442198514f9ad7f463da5", async() => {
                     BeginContext(825, 19, true);
                     WriteLiteral("Controle de Estoque");
                     EndContext();
@@ -168,7 +168,7 @@ using Domain;
                         ");
                 EndContext();
                 BeginContext(1650, 63, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b6a897a271c5490f94dd024b7bded2ce", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "52d8b097eda148ae9530ac03c785ecc1", async() => {
                     BeginContext(1700, 9, true);
                     WriteLiteral("Categoria");
                     EndContext();
@@ -190,7 +190,7 @@ using Domain;
                 WriteLiteral("\r\n                        ");
                 EndContext();
                 BeginContext(1739, 65, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4efa22e422bc4843a5a9ae2d64918748", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e6fe5ddbcd0349e486cb70aa3958ed49", async() => {
                     BeginContext(1790, 10, true);
                     WriteLiteral("Fornecedor");
                     EndContext();
@@ -212,7 +212,7 @@ using Domain;
                 WriteLiteral("\r\n                        ");
                 EndContext();
                 BeginContext(1830, 59, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0520f46815b64c9fbfaee93ebe5e8757", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e12ff6dc00bc4d868d19c7666d518ecc", async() => {
                     BeginContext(1878, 7, true);
                     WriteLiteral("Produto");
                     EndContext();
@@ -234,7 +234,7 @@ using Domain;
                 WriteLiteral("\r\n                        <div class=\"dropdown-divider\"></div>\r\n                        ");
                 EndContext();
                 BeginContext(1977, 59, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e253d5a37ccc47bca4950914628fa3e5", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "537dab8f35184e4a95255d7e39f30033", async() => {
                     BeginContext(2025, 7, true);
                     WriteLiteral("Usuário");
                     EndContext();
@@ -256,7 +256,7 @@ using Domain;
                 WriteLiteral("\r\n                    </div>\r\n                </li>\r\n                <li class=\"nav-item\">\r\n                    ");
                 EndContext();
                 BeginContext(2148, 61, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a5f6a7e5d50c4835a4a4676762e45bff", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c6a5a856c7204992a5e94ce55ab892b8", async() => {
                     BeginContext(2193, 12, true);
                     WriteLiteral("Movimentação");
                     EndContext();
@@ -283,7 +283,7 @@ using Domain;
                         ");
                 EndContext();
                 BeginContext(2656, 69, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "be22c82d8e00443a8622332ceee0ed4c", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "15c499c35b3541eabd86aa9153a8b944", async() => {
                     BeginContext(2711, 10, true);
                     WriteLiteral("Devoluções");
                     EndContext();
@@ -305,7 +305,7 @@ using Domain;
                 WriteLiteral("\r\n                        ");
                 EndContext();
                 BeginContext(2751, 69, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6884f7b7ff5541a9b5f8444a5f79e222", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8fb96b3a25994838bb20edc7808ce47e", async() => {
                     BeginContext(2806, 10, true);
                     WriteLiteral("Movimentos");
                     EndContext();
@@ -327,7 +327,7 @@ using Domain;
                 WriteLiteral("\r\n                        ");
                 EndContext();
                 BeginContext(2846, 73, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cd4a58eca8aa4a51a1951b3aba180a51", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "65ba44bb0b014eecababa7ea6a5ddb07", async() => {
                     BeginContext(2897, 18, true);
                     WriteLiteral("Posição de Estoque");
                     EndContext();
@@ -373,7 +373,7 @@ using Domain;
                             ");
                 EndContext();
                 BeginContext(3712, 90, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55c81c428f9a427cbab51318787f8121", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d720949717624e61924c1a9171c195b0", async() => {
                     BeginContext(3791, 7, true);
                     WriteLiteral("Logout ");
                     EndContext();
@@ -408,7 +408,7 @@ using Domain;
                 WriteLiteral("                    <li class=\"nav-item\">\r\n                        ");
                 EndContext();
                 BeginContext(4137, 98, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "24dec80921e74a859bc810fd13ad9cc9", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7550b4faeafd4fd2a3c816c76f7d486a", async() => {
                     BeginContext(4223, 8, true);
                     WriteLiteral(" Entrar ");
                     EndContext();

@@ -88,6 +88,16 @@ namespace ControleEstoqueASP.Controllers
             return Json("");
         }
 
+        public JsonResult BuscarEstoquePorProduto(int produtoId)
+        {
+            Estoque e = _estoqueDAO.BuscarEstoquePorProduto(produtoId);
+            if (e != null)
+            {
+                return Json(e);
+            }
+            return Json(new { msg = "Produto não encontrado!" });
+        }
+
         public IActionResult Detalhes(int id)
         {
             return View(_movimentoDAO.BuscarMovimentoPorId(id));
@@ -99,6 +109,7 @@ namespace ControleEstoqueASP.Controllers
             ViewBag.Produtos = new SelectList(_produtoDAO.ListarProdutos(), "Id", "Nome");
             ViewBag.Categorias = new SelectList(_categoriaDAO.ListarCategorias(), "Id", "Nome");
             ViewBag.Fornecedores = new SelectList(_fornecedorDAO.ListarFornecedores(), "Id", "Nome");
+            //ViewBag.Estoque = new SelectList(_estoqueDAO.ListarEstoquePorProduto(), "Id", "Localizacao");
 
             if (ModelState.IsValid)
             {
@@ -115,7 +126,7 @@ namespace ControleEstoqueASP.Controllers
                         _estoqueDAO.AtualizarEnderecoEstoque(m);
                         break;
                     case "Saida":
-                        //m.EnderecoEstoque = (_estoqueDAO.BuscarEstoquePorId(drpEnderecoEstoque)).Localizacao;
+                        m.EnderecoEstoque = (_estoqueDAO.BuscarEstoquePorId(drpEnderecoEstoque)).Localizacao;
                         _movimentoDAO.LancarMovimento(m);
                         _estoqueDAO.AtualizarEnderecoEstoque(m);
                         break;
