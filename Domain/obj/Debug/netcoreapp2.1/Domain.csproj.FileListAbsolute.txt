@@ -15,3 +15,4 @@ C:\GitHub\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.AssemblyInfo.
 C:\GitHub\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.dll
 C:\GitHub\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.pdb
 C:\GitHub\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.csprojAssemblyReference.cache
+C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\Domain\obj\Debug\netcoreapp2.1\Domain.csprojAssemblyReference.cache

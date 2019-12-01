@@ -24,7 +24,10 @@ namespace ControleEstoqueASP.Controllers
             return View(_estoqueDAO.ListarEnderecoEstoqueSituacao());
         }
 
+        public IActionResult REstoque()
+        {
+            return View(_estoqueDAO.ListarEstoquePorProduto());
 
-
+        }
     }
 }

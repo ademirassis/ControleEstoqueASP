@@ -53,16 +53,6 @@ namespace ControleEstoqueASP.Controllers
             return View(_movimentoDAO.ListarMovimento());
         }
 
-        public IActionResult RPosicao()
-        {
-            ViewBag.Produtos = new SelectList(_produtoDAO.ListarProdutos(), "Id", "Nome", "Preco");
-            ViewBag.Categorias = new SelectList(_categoriaDAO.ListarCategorias(), "Id", "Nome");
-            ViewBag.Fornecedores = new SelectList(_fornecedorDAO.ListarFornecedores(), "Id", "Nome");
-            ViewBag.DataHora = DateTime.Now;
-
-            return View(_movimentoDAO.ListarMovimento());
-        }
-
         public IActionResult Cadastrar()
         {
             ViewBag.Produtos = new SelectList(_produtoDAO.ListarProdutos(), "Id", "Nome");
@@ -125,12 +115,12 @@ namespace ControleEstoqueASP.Controllers
                         _estoqueDAO.AtualizarEnderecoEstoque(m);
                         break;
                     case "Saida":
+                        //m.EnderecoEstoque = (_estoqueDAO.BuscarEstoquePorId(drpEnderecoEstoque)).Localizacao;
                         _movimentoDAO.LancarMovimento(m);
                         _estoqueDAO.AtualizarEnderecoEstoque(m);
                         break;
                     case "Devolucao":
                         _devolucaoDAO.LancaDevolucao(m);
-                        _estoqueDAO.AtualizarEnderecoEstoque(m);
                         break;
                     default:
                         break;

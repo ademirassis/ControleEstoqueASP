@@ -47,7 +47,7 @@ namespace API.Controllers
                 estoqueDyn.Add(d);
             }
 
-            return Ok(estoqueDyn);
+            return Ok(_estoqueDAO.ListarEstoquePorProduto());
         }
     }
 }

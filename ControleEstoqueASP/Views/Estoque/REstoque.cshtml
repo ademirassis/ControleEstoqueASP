@@ -1,0 +1,48 @@
+﻿@model List<Estoque>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DateTime dataHora = DateTime.Now;
+}
+
+
+<h2>Relatório - Posição de Estoque por Produto</h2>
+
+<table style="margin-top:15px;margin-bottom:15px" class="table table-hover">
+    <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Categoria</th>
+            <th>Fornecedor</th>
+            <th>Quantidade</th>
+            <th>Valor Unitário</th>
+            <th>Valor Total</th>
+            <th>Localização</th>
+            <th>Atualizado em</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Estoque item in Model)
+        {
+            <tr>
+                <td>@item.Produto.Nome</td>
+                <td>@item.Produto.Categoria.Nome</td>
+                <td>@item.Produto.Fornecedor.Nome</td>
+                <td>@item.Quantidade.ToString()</td>
+                <td>@item.Produto.Preco.ToString("C2")</td>
+                <td>
+                    @{
+                        double subtotal = item.Produto.Preco * item.Quantidade;
+                    }
+                    @subtotal.ToString("C2")
+                </td>
+                <td>@item.Localizacao</td>
+                <td>@item.AtualizadoEm</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <b>Dados atualizados em: </b> @dataHora
+</p>

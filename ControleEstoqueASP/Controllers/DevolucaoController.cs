@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Repository;
 
 namespace ControleEstoqueASP.Controllers
 {
@@ -11,9 +12,16 @@ namespace ControleEstoqueASP.Controllers
     //[Authorize(Roles = "ADM")]
     public class DevolucaoController : Controller
     {
-        public IActionResult Index()
+        private readonly DevolucaoDAO _devolucaoDAO;
+
+        public DevolucaoController(DevolucaoDAO devolucaoDAO)
         {
-            return View();
+            _devolucaoDAO = devolucaoDAO;
+        }
+
+        public IActionResult RDevolucao()
+        {
+            return View(_devolucaoDAO.BuscarDevolucoes());
         }
     }
 }
