@@ -72,7 +72,7 @@ using Domain;
             WriteLiteral("\r\n<h2>Gerenciamento de Produtos</h2>\r\n\r\n");
             EndContext();
             BeginContext(191, 71, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0e3635202bdc43cd9ad42e788c041f67", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c997f33acf8649618dc10b8593c67039", async() => {
                 BeginContext(241, 17, true);
                 WriteLiteral("Cadastrar Produto");
                 EndContext();
@@ -182,7 +182,7 @@ using Domain;
             WriteLiteral("</td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(1015, 110, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a8f9333769d14ec5a4f815858ec9679b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "20a884fb49c845228997a86b1d27eed4", async() => {
                 BeginContext(1114, 7, true);
                 WriteLiteral("Remover");
                 EndContext();
@@ -218,7 +218,7 @@ using Domain;
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(1180, 108, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "832a4f0864e940dca3d865832813bfad", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "637c1d2a0fc94d5f9c84d4a38e02f3ab", async() => {
                 BeginContext(1277, 7, true);
                 WriteLiteral("Alterar");
                 EndContext();
@@ -254,7 +254,7 @@ using Domain;
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(1343, 135, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5b8273063fe24ecfaf3cbd24e8177443", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "827e29429d594e0c86c550bb5c6c06c1", async() => {
                 BeginContext(1466, 8, true);
                 WriteLiteral("Detalhes");
                 EndContext();

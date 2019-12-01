@@ -62,7 +62,7 @@ using Domain;
             WriteLiteral("\r\n<h2>Controle de Estoque - EstoqueAI</h2>\r\n\r\n<div class=\"container-fluid text-center col-sm-3\" >\r\n    ");
             EndContext();
             BeginContext(191, 68, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "7064d149167d4ee2a279ddc8fff90541", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "19a3dc8747df4346b764b7a4534684f3", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
