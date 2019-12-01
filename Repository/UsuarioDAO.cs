@@ -38,6 +38,16 @@ namespace Repository
             _context.Usuarios.FirstOrDefault
             (x => x.Nome.Equals(u.Nome));
 
+        public String BuscarCargoUsuario(String e)
+        {
+            Usuario u = _context.Usuarios.FirstOrDefault (x => x.Email.Equals(e));
+            if (u != null)
+            {
+                return u.Cargo;
+            }
+            return null;
+        }
+
         public Usuario BuscarUsuarioPorCpf
             (Usuario u) =>
             _context.Usuarios.FirstOrDefault

@@ -61,7 +61,7 @@ namespace ControleEstoqueASP.Controllers
                 Produto p = _produtoDAO.BuscarProdutoPorId(id);
 
                 SelectList categorias = new SelectList(_categoriaDAO.ListarCategorias(), "Id", "Nome");
-                foreach (var item in categorias)
+                foreach (var item in categorias) //mandar o item selecionado
                 {
                     if (item.Value == p.Categoria.Id.ToString())
                     {

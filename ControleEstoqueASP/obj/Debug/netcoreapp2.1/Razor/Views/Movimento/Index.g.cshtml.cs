@@ -184,7 +184,7 @@ using Domain;
             WriteLiteral("    </table>\r\n</div>\r\n<div>\r\n    <br /><p> ");
             EndContext();
             BeginContext(1361, 63, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fd95db9318414c4199f817866f3a5c64", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "710a402cb620425091e14da3c815c1b1", async() => {
                 BeginContext(1411, 9, true);
                 WriteLiteral("Cadastrar");
                 EndContext();

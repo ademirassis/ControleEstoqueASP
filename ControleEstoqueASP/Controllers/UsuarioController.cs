@@ -8,9 +8,14 @@ using Repository;
 using Microsoft.AspNetCore.Identity;
 using System.Net;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Security.Claims;
 
 namespace ControleEstoqueASP.Controllers
 {
+    //[Authorize]
+    //[Authorize(Roles = "ADM")]
     public class UsuarioController : Controller
     {
         private readonly UsuarioDAO _usuarioDAO;
@@ -36,6 +41,13 @@ namespace ControleEstoqueASP.Controllers
 
         public IActionResult Cadastrar()
         {
+            String Email = User.Identity.Name;
+            //Caso usuario não seja ADM não deixa Cadastrar
+            if (_usuarioDAO.BuscarCargoUsuario(Email) =="Nada")//!= "Administrador")
+            {
+                return RedirectToAction("Index");
+            }
+
             Usuario u = new Usuario();
 
             if (TempData["Endereco"] != null)
@@ -43,6 +55,7 @@ namespace ControleEstoqueASP.Controllers
                 string resultado = TempData["Endereco"].ToString();
                 Endereco endereco = JsonConvert.DeserializeObject<Endereco>(resultado);
                 u.Endereco = endereco;
+                ViewBag.perfilCargo = PerfilCargo(u);
                 ViewBag.id = 1;
             }
             return View(u);
@@ -59,6 +72,7 @@ namespace ControleEstoqueASP.Controllers
 
             return RedirectToAction(nameof(Cadastrar));
         }
+
         // Detalhar endereco
         public IActionResult DetalheEndereco(int id)
         {
@@ -70,16 +84,36 @@ namespace ControleEstoqueASP.Controllers
         //Alterar Usuario
         public IActionResult Alterar(int? id)
         {
-           Usuario u = _usuarioDAO.BuscarUsuarioPorId(id);
+            String Email = User.Identity.Name;
+            //Caso usuario não seja ADM não deixa Alterar
+            if (_usuarioDAO.BuscarCargoUsuario(Email) == "Nada")//!= "Administrador")
+            {
+                return RedirectToAction("Index");
+            }
+
+            Usuario u = _usuarioDAO.BuscarUsuarioPorId(id);
+            ViewBag.perfilCargo = PerfilCargo(u);
 
             return View(u);
         }
+
         public IActionResult Remover(int? id)
         {
-            Usuario u = _usuarioDAO.BuscarUsuarioPorId(id);      
-            _usuarioDAO.RemoverUsuario(u);
+            String Email = User.Identity.Name;
+            //Caso usuario não seja ADM não deixa Remover
+            if (_usuarioDAO.BuscarCargoUsuario(Email) == "Nada")//!= "Administrador")
+            {
+                return RedirectToAction("Index");
+            }
 
-            return RedirectToAction("Index");
+            Usuario u = _usuarioDAO.BuscarUsuarioPorId(id);
+            if (u.Email != Email)
+            { 
+                _usuarioDAO.RemoverUsuario(u);
+                return RedirectToAction("Index");
+            }
+            return null;
+  
         }
 
         [HttpPost]
@@ -87,11 +121,12 @@ namespace ControleEstoqueASP.Controllers
         {
             if (ModelState.IsValid)
             {
+                //consumir api cpf aqui ... 
                 if (_usuarioDAO.AlterarUsuario(u))
                 {
                     return RedirectToAction("Index");
                 }
-                ModelState.AddModelError("", "Esse produto já existe!");
+                ModelState.AddModelError("", "Erro de atualização!");
                 return View(u);
             }
             return View(u);
@@ -115,6 +150,8 @@ namespace ControleEstoqueASP.Controllers
             {
                 //Logar o usuário no sistema
                 await _signManager.SignInAsync(usuarioLogado, isPersistent: false);
+
+                //consumir api cpf aqui ... 
 
                 if (_usuarioDAO.CadastrarUsuario(u))
                 {
@@ -158,6 +195,39 @@ namespace ControleEstoqueASP.Controllers
             }
             ModelState.AddModelError("", "Falha no Login!");
             return View();
+        }
+
+        public List<SelectListItem> PerfilCargo(Usuario u)
+        {
+            bool admin, gestor, operador;
+
+            if (u.Cargo == "Administrador") { admin = true; } else { admin = false; }
+            if (u.Cargo == "Gestor") { gestor = true; } else { gestor = false; }
+            if (u.Cargo == "Operador") { operador = true; } else { operador = false; }
+
+
+            var perfilCargoList = new List<SelectListItem>
+            {
+                new SelectListItem()
+                {
+                    Value = "Administrador",
+                    Text = "Administrador",
+                    Selected = admin
+                },
+                new SelectListItem()
+                {
+                    Value = "Gestor",
+                    Text = "Gestor",
+                    Selected = gestor
+                },
+                new SelectListItem()
+                {
+                    Value = "Operador",
+                    Text = "Operador",
+                    Selected = operador
+                }
+            };
+            return perfilCargoList;
         }
     }
 }
