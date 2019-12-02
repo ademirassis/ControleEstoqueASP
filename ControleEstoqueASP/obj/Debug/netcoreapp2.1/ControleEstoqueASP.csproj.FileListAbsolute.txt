@@ -100,3 +100,5 @@ C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqu
 C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\ControleEstoqueASP.pdb
 C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Estoque\REstoque.g.cshtml.cs
 C:\Users\aiury\OneDrive\Git\Microsoft\Projetos\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Devolucao\RDevolucao.g.cshtml.cs
+C:\GitHub\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Devolucao\RDevolucao.g.cshtml.cs
+C:\GitHub\ControleEstoqueASP\ControleEstoqueASP\obj\Debug\netcoreapp2.1\Razor\Views\Estoque\REstoque.g.cshtml.cs

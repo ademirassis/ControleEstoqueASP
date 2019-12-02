@@ -12,7 +12,7 @@
         <div class="form-group" id="Cep">
             <label asp-for="Endereco.Cep"></label>
             <input type="text" asp-for="Endereco.Cep"
-                   class="form-control" />
+                   class="form-control" required />
         </div>
 
         <input type="submit" class="btn btn-info"
@@ -45,8 +45,7 @@
     </fieldset>
 
     @if (id == 1)
-     {
-
+    {
         <fieldset>
             <legend>Dados Pessoais</legend>
 
@@ -61,8 +60,10 @@
             <div class="form-group" id="Cpf">
                 <label asp-for="Cpf"></label>
                 <input type="text" asp-for="Cpf"
-                       class="form-control" />
+                       class="form-control" name="Cpf" id="txtCpf" required />
                 <span asp-validation-for="Cpf" class="text-danger"></span>
+                <span id="ret_valido" name="ret_valido" class="text-info"></span>
+                <span id="ret_invalido" name="ret_invalido" class="text-danger"></span>
             </div>
             <div class="form-group" id="Cargo">
                 <label asp-for="Cargo"></label>
@@ -71,7 +72,6 @@
                 </select>
                 <span asp-validation-for="Cargo" class="text-danger"></span>
             </div>
-
             <div class="form-group" id="Email">
                 <label asp-for="Email"></label>
                 <input type="text" asp-for="Email"
@@ -80,13 +80,13 @@
             </div>
             <div class="form-group" id="Senha">
                 <label asp-for="Senha"></label>
-                <input type="text" asp-for="Senha"
+                <input type="password" asp-for="Senha"
                        class="form-control" />
                 <span asp-validation-for="Senha" class="text-danger"></span>
             </div>
             <div class="form-group" id="ConfirmacaoSenha">
                 <label asp-for="ConfirmacaoSenha"></label>
-                <input type="text" asp-for="ConfirmacaoSenha"
+                <input type="password" asp-for="ConfirmacaoSenha"
                        class="form-control" />
                 <span asp-validation-for="ConfirmacaoSenha" class="text-danger"></span>
             </div>
@@ -95,5 +95,35 @@
             </div>
 
         </fieldset>
-     }
+    }
 </form>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#txtCpf').on('blur', function () {
+            var cpf = document.getElementById('txtCpf').value;
+            if (cpf != "") {
+                document.getElementById('ret_valido').innerHTML = "";
+                document.getElementById('ret_invalido').innerHTML = "";
+                $.ajax({
+                    type: 'GET',
+                    data: { cpf: cpf },
+                    dataType: "json",
+                    url: '@Url.Action("ValidaCPF", "Usuario")',
+                    success: function (retorno) {
+                        if (retorno == 'inválido') {
+                            document.getElementById('ret_invalido').innerHTML = "Esse CPF é: " + retorno + "!";
+                            document.getElementById('txtCpf').value = "";
+                        } else {
+                            document.getElementById('ret_valido').innerHTML = "Esse CPF é: " + retorno + "!";
+                        }
+                    }
+                });
+            } else {
+                document.getElementById('ret_valido').innerHTML = "";
+                document.getElementById('ret_invalido').innerHTML = "";
+            }
+        });
+    });
+</script>
+

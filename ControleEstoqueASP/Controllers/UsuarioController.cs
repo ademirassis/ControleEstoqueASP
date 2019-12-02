@@ -43,7 +43,7 @@ namespace ControleEstoqueASP.Controllers
         {
             String Email = User.Identity.Name;
             //Caso usuario não seja ADM não deixa Cadastrar
-            if (_usuarioDAO.BuscarCargoUsuario(Email) =="Nada")//!= "Administrador")
+            if (_usuarioDAO.BuscarCargoUsuario(Email) != "Administrador")
             {
                 return RedirectToAction("Index");
             }
@@ -86,7 +86,7 @@ namespace ControleEstoqueASP.Controllers
         {
             String Email = User.Identity.Name;
             //Caso usuario não seja ADM não deixa Alterar
-            if (_usuarioDAO.BuscarCargoUsuario(Email) == "Nada")//!= "Administrador")
+            if (_usuarioDAO.BuscarCargoUsuario(Email) != "Administrador")
             {
                 return RedirectToAction("Index");
             }
@@ -101,7 +101,7 @@ namespace ControleEstoqueASP.Controllers
         {
             String Email = User.Identity.Name;
             //Caso usuario não seja ADM não deixa Remover
-            if (_usuarioDAO.BuscarCargoUsuario(Email) == "Nada")//!= "Administrador")
+            if (_usuarioDAO.BuscarCargoUsuario(Email) != "Administrador")
             {
                 return RedirectToAction("Index");
             }
@@ -113,7 +113,6 @@ namespace ControleEstoqueASP.Controllers
                 return RedirectToAction("Index");
             }
             return null;
-  
         }
 
         [HttpPost]
@@ -121,7 +120,6 @@ namespace ControleEstoqueASP.Controllers
         {
             if (ModelState.IsValid)
             {
-                //consumir api cpf aqui ... 
                 if (_usuarioDAO.AlterarUsuario(u))
                 {
                     return RedirectToAction("Index");
@@ -149,9 +147,8 @@ namespace ControleEstoqueASP.Controllers
             if (result.Succeeded)
             {
                 //Logar o usuário no sistema
-                await _signManager.SignInAsync(usuarioLogado, isPersistent: false);
+                //await _signManager.SignInAsync(usuarioLogado, isPersistent: false);
 
-                //consumir api cpf aqui ... 
 
                 if (_usuarioDAO.CadastrarUsuario(u))
                 {
@@ -205,7 +202,6 @@ namespace ControleEstoqueASP.Controllers
             if (u.Cargo == "Gestor") { gestor = true; } else { gestor = false; }
             if (u.Cargo == "Operador") { operador = true; } else { operador = false; }
 
-
             var perfilCargoList = new List<SelectListItem>
             {
                 new SelectListItem()
@@ -228,6 +224,16 @@ namespace ControleEstoqueASP.Controllers
                 }
             };
             return perfilCargoList;
+        }
+
+        public JsonResult ValidaCpf(String cpf)
+        {
+            if(cpf != null)
+            { 
+                String msg = (_usuarioDAO.ValidaCpf(cpf)) ? "válido" : "inválido";
+                return Json(msg);
+            }
+            return Json("");
         }
     }
 }
