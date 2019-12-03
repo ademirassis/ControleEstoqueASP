@@ -17,3 +17,8 @@ para LOGAR no GIT
 
 $ git config user.name "cnogatz"
 $ git config user.email "cnogatz@gmail.com"
+
+Para subir no GIT
+git add -A (prepara a caixinha)
+git commit (inclui o rotulo)
+git push (envia o arquivo)
