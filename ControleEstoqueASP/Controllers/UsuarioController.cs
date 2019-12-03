@@ -108,7 +108,7 @@ namespace ControleEstoqueASP.Controllers
 
             Usuario u = _usuarioDAO.BuscarUsuarioPorId(id);
             if (u.Email != Email)
-            { 
+            {
                 _usuarioDAO.RemoverUsuario(u);
                 return RedirectToAction("Index");
             }
@@ -140,15 +140,14 @@ namespace ControleEstoqueASP.Controllers
                 UserName = u.Email
             };
 
-        //Cadastra o resultado do cadastro
-        IdentityResult result = await _userManager.CreateAsync(usuarioLogado, u.Senha);
+            //Cadastra o resultado do cadastro
+            IdentityResult result = await _userManager.CreateAsync(usuarioLogado, u.Senha);
 
             //Testar o resultado do cadastro
             if (result.Succeeded)
             {
                 //Logar o usuário no sistema
                 //await _signManager.SignInAsync(usuarioLogado, isPersistent: false);
-
 
                 if (_usuarioDAO.CadastrarUsuario(u))
                 {
@@ -185,12 +184,15 @@ namespace ControleEstoqueASP.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(Usuario u)
         {
-            var result = await _signManager.PasswordSignInAsync(u.Email, u.Senha, true, lockoutOnFailure: false);
-            if (result.Succeeded)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("Index", "Produto");
+                var result = await _signManager.PasswordSignInAsync(u.Email, u.Senha, true, lockoutOnFailure: false);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Produto");
+                }
+                ModelState.AddModelError("", "Falha no Login!");
             }
-            ModelState.AddModelError("", "Falha no Login!");
             return View();
         }
 
@@ -228,8 +230,8 @@ namespace ControleEstoqueASP.Controllers
 
         public JsonResult ValidaCpf(String cpf)
         {
-            if(cpf != null)
-            { 
+            if (cpf != null)
+            {
                 String msg = (_usuarioDAO.ValidaCpf(cpf)) ? "válido" : "inválido";
                 return Json(msg);
             }

@@ -4082,23 +4082,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\22027\\.nuget\\packages\\": {},
+    "C:\\Users\\Malu\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GitHub\\ControleEstoqueASP\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Malu\\Desktop\\CLAUDIO\\ControleEstoqueASP\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\GitHub\\ControleEstoqueASP\\Domain\\Domain.csproj",
-      "packagesPath": "C:\\Users\\22027\\.nuget\\packages\\",
-      "outputPath": "C:\\GitHub\\ControleEstoqueASP\\Domain\\obj\\",
+      "projectPath": "C:\\Users\\Malu\\Desktop\\CLAUDIO\\ControleEstoqueASP\\Domain\\Domain.csproj",
+      "packagesPath": "C:\\Users\\Malu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Malu\\Desktop\\CLAUDIO\\ControleEstoqueASP\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\22027\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Malu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
