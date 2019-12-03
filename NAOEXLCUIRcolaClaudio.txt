@@ -1,0 +1,19 @@
+
+Para criar atributos em models
+--> PROP --> TAB TAB --> Digirat Tipo --> digitarnomeAtribut]
+
+Git Clone {endereço}
+
+Carregar novo banco
+	Nuget - Console
+	update-database
+
+Quando adicionar novo modelo.
+	Nuget - Console
+	Add-migration "mensagem"
+	update-database
+
+para LOGAR no GIT
+
+$ git config user.name "cnogatz"
+$ git config user.email "cnogatz@gmail.com"
