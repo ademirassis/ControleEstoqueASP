@@ -12,5 +12,10 @@ namespace ControleEstoqueASP.Models
         {
             return View();
         }
+   
+        public IActionResult Apis()
+        {
+            return View();
+        }
     }
 }

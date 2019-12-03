@@ -23,12 +23,13 @@ namespace Repository
 
         public void LancaDevolucao(Movimento m)
         {
-            Devolucao d = new Devolucao();
-
-            d.Produto = m.Produto;
-            d.Categoria = m.Categoria;
-            d.Fornecedor = m.Fornecedor;
-            d.Quantidade = m.Quantidade;
+            Devolucao d = new Devolucao
+            {
+                Produto = m.Produto,
+                Categoria = m.Categoria,
+                Fornecedor = m.Fornecedor,
+                Quantidade = m.Quantidade
+            };
 
             _context.Devolucoes.Add(d);
             _context.SaveChanges();

@@ -35,6 +35,13 @@ namespace Repository
                 .Where(x => x.TipoMovimento.Equals(TipoMovimento)).ToList();
         }
 
+        public object ListarDevolucao()
+        {
+            return _context.Movimentos
+                .Include("Produto").Include("Categoria").Include("Fornecedor")
+                .Where(x => x.TipoMovimento.Equals("Devolucao")).ToList();
+        }
+
         public Movimento BuscarMovimentoPorId(int id)
         {
             return _context.Movimentos

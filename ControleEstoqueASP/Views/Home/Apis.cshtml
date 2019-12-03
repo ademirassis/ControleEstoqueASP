@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Apis";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<fieldset>
+    <legend>APIS {<a href="http://localhost:55859">Link Api</a>} 
+        Copie um caminho abaixo e click nesse link:</legend>
+
+    <div asp-validation-summary="ModelOnly"
+            class="text-primary"></div>
+
+    <table class="table table-hover">
+        <tr align-middle>
+            <td>Buscar Produto em Estoque por Id</td>
+            <td>/api/Estoque/BuscarEstoquePorProduto/{ProdutoId}</td>
+        </tr>
+        <tr align-middle>
+            <td>LIstar Produtos em Estoque</td>
+            <td>/api/Estoque/BuscarEstoquePorProduto</td>
+            <td>
+        </tr>
+        <tr align-middle>
+            <td>Listar Movimentação</td>
+            <td>/api/Movimento/ListarMovimento</td>
+        </tr>
+        <tr align-middle>
+            <td>Buscar Produto por Id</td>
+            <td>/api/Produto/BuscarProdutoPorId/{ProdutoId}</td>
+        </tr>
+        <tr align-middle>
+            <td>Listar Todos Produtos</td>
+            <td>/api/Produto/ListarProdutos</td>
+        </tr>
+        <tr align-middle>
+            <td>Listar Produtos para Devolução</td>
+            <td>/api/Movimento/ListarDevolucao</td>
+        </tr>
+    </table>
+</fieldset>
